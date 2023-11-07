@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('Admin.dashboard_admin');
 });
+Route::get('/dashboard', function () {
+    return view('Admin.dashboard_admin');
+});
+Route::get('/pengaduan_admin', function () {
+    return view('Admin.data_pengaduan');
+});
+
