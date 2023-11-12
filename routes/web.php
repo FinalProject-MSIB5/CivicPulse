@@ -20,11 +20,9 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('Landingpage.home');
 });
-
 Route::get('/dashboard', function () {
     return view('Admin.dashboard_admin');
 });
 Route::get('/pengaduan_admin', function () {
     return view('Admin.data_pengaduan');
 });
-
