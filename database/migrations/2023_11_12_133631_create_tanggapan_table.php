@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('tanggapan', function (Blueprint $table) {
           $table->unsignedBigInteger('id')->primary();
+          $table->date('tgl_tanggapan');
           $table->text('keterangan');
           $table->integer('users_id')->unsigned();
           $table->foreign('users_id')->references('id')->on('users');
