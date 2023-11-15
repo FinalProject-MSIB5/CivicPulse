@@ -33,7 +33,7 @@
 	<div class="wrapper">
 		 @include('Templates.sidebar')
 		 @include('Templates.navbar')
-		
+
 		@yield('content')
 		<!--start overlay-->
 		<div class="overlay toggle-icon"></div>

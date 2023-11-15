@@ -52,16 +52,20 @@
                 <div class="menu-title">Profile</div>
             </a>
         </li>
-        <li>
-            <a href="index.html">
-                <div class="parent-icon"><i class="bi bi-list-task"></i>
-                </div>
-                <div class="menu-title">Data Pengaduan</div>
-            </a>
-        </li>
-      
-
-  
+                  <li>
+                    <a class="has-arrow" href="javascript:;">
+                      <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+                      </div>
+                      <div class="menu-title">Pengaduan</div>
+                    </a>
+                    <ul>
+                      <li> <a href="{{url('/ajukan_pengaduan')}}"><i class="bx bx-right-arrow-alt"></i>Ajukan Pengaduan</a>
+                      </li>
+                      <li> <a href="{{url('/histori_pengaduan')}}"><i class="bx bx-right-arrow-alt"></i>Histori Pengaduan</a>
+                      </li>
+                    </ul>
+                  </li>
+              
         <li class="mt-5">
             <a href="index.html">
                 <div class="parent-icon"><i class="bi bi-box-arrow-left"></i>
