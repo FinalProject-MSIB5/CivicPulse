@@ -18,8 +18,6 @@ return new class extends Migration
           $table->text('alamat');
           $table->enum('gender', ['laki-laki', 'perempuan']);
           $table->string('foto', 45)->nullable();
-          $table->integer('user_id')->unsigned();
-          $table->foreign('user_id')->references('id')->on('users');
           $table->timestamps();
         });
     }
