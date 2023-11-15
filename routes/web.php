@@ -13,16 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/', function () {
     return view('Landingpage.home');
 });
 Route::get('/home', function () {
     return view('Landingpage.home');
 });
+
 Route::get('/dashboard', function () {
     return view('Admin.dashboard_admin');
 });
 Route::get('/pengaduan_admin', function () {
     return view('Admin.data_pengaduan');
+});
+
+Route::get('/histori_pengaduan', function(){
+  return view('Masyarakat.histori_pengaduan');
 });
