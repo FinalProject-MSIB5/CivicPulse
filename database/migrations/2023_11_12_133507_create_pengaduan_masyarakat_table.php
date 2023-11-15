@@ -18,8 +18,6 @@ return new class extends Migration
           $table->text('lokasi_pengaduan');
           $table->string('foto_pengaduan', 45);
           $table->enum('status', ['Belum diproses', 'Proses', 'Selesai'])->default('Belum diproses');
-          $table->integer('masyarakat_id')->unsigned();
-          $table->foreign('masyarakat_id')->references('id')->on('masyarakat');
           $table->timestamps();
         });
     }
