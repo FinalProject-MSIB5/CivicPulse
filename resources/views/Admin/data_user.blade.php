@@ -24,9 +24,9 @@
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <th>
-                                <th>user_id</th>
+                                <th>ID</th>
                                 <th>NIK</th>
-                                <th>No.Telepon </th>
+                                <th>No.Telepon</th>
                                 <th>Alamat</th>
                                 <th>Gender</th>
                                 <th>foto</th>
@@ -42,7 +42,8 @@
                                 <td>{{ $masyarakat->alamat }}</td>
                                 <td>{{ $masyarakat->gender }}</td>
                             </tr>
-                        @endforeach
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
