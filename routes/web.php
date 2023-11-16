@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HistoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ Route::get('/home', function () {
     return view('Landingpage.home');
 });
 
+// ADMIN
 Route::get('/dashboard', function () {
     return view('Admin.dashboard_admin');
 });
@@ -28,9 +30,10 @@ Route::get('/pengaduan_admin', function () {
     return view('Admin.data_pengaduan');
 });
 Route::get('/data_user', 
-[UserController::class,'index']
+  [UserController::class,'index']
 );
 
-Route::get('/histori_pengaduan', function(){
-  return view('Masyarakat.histori_pengaduan');
-});
+// MASYARAKAT
+Route::get('/histori_pengaduan', 
+  [HistoriController::class,'index']
+);

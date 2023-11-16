@@ -13,7 +13,7 @@ return new class extends Migration
     {
       Schema::create('users', function (Blueprint $table) {
         $table->unsignedBigInteger('id')->primary();
-        $table->string('name', 45);
+        $table->string('nama', 45);
         $table->string('email', 45)->unique();
         $table->string('password', 60);
         $table->enum('role', ['admin','masyarakat'])->default('masyarakat');
