@@ -32,6 +32,9 @@ Route::get('/pengaduan_admin', function () {
 Route::get('/data_user', 
   [UserController::class,'index']
 );
+Route::get('/profile_masyarakat', function () {
+  return view('Masyarakat.profile_masyarakat');
+});
 
 // MASYARAKAT
 Route::get('/histori_pengaduan', 

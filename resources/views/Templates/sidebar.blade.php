@@ -46,7 +46,7 @@
             </a>
         </li>
         <li>
-            <a href="index.html">
+            <a href="{{ url('/profile_masyarakat') }}">
                 <div class="parent-icon"><i class="bi bi-person-fill"></i>
                 </div>
                 <div class="menu-title">Profile</div>
