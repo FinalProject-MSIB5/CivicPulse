@@ -29,7 +29,7 @@
             </a>
         </li>
         <li>
-            <a href="index.html">
+            <a href="{{ url('data_user') }}">
                 <div class="parent-icon"><i class="bi bi-person-lines-fill"></i>
                 </div>
                 <div class="menu-title">Data User</div>

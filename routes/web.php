@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,9 @@ Route::get('/dashboard', function () {
 Route::get('/pengaduan_admin', function () {
     return view('Admin.data_pengaduan');
 });
+Route::get('/data_user', 
+[UserController::class,'index']
+);
 
 Route::get('/histori_pengaduan', function(){
   return view('Masyarakat.histori_pengaduan');
