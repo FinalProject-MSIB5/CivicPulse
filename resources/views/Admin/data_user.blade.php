@@ -24,7 +24,6 @@
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <th>
-                                <th>id</th>
                                 <th>user_id</th>
                                 <th>NIK</th>
                                 <th>No.Telepon </th>
@@ -39,7 +38,6 @@
                                 <td>{{ $masyarakat->id }}</td>
                                 <td>{{ $masyarakat->user_id }}</td>
                                 <td>{{ $masyarakat->nik }}</td>
-                                <td>{{ $masyarakat->nama }}</td>
                                 <td>{{ $masyarakat->no_telepon }}</td>
                                 <td>{{ $masyarakat->alamat }}</td>
                                 <td>{{ $masyarakat->gender }}</td>
