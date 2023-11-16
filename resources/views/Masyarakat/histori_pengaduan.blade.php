@@ -5,7 +5,7 @@
     <div class="page-content">
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">Menu Masyarakat</div>
+            <div class="breadcrumb-title pe-3">Masyarakat</div>
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
@@ -25,26 +25,26 @@
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Nama</th>
-                                <th>Pengaduan</th>
-                                <th>Alamat Pengaduan</th>
-                                <th>Tanggal Pengaduan</th>
-                                <th>Foto</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                              <th>ID</th>
+                              <th>Nama</th>
+                              <th>Pengaduan</th>
+                              <th>Alamat Pengaduan</th>
+                              <th>Tanggal Pengaduan</th>
+                              <th>Foto</th>
+                              <th>Status</th>
+                              <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($historiPengaduan as $histori)
                             <tr>
-                                <td>{{ $histori->id }}</td>
-                                <td>{{ $histori->masyarakat_id }}</td>
-                                <td>{{ $histori->tgl_pengaduan }}</td>
-                                <td>{{ $histori->deskripsi }}</td>
-                                <td>{{ $histori->lokasi_pengaduan }}</td>
-                                <td>{{ $histori->foto_pengaduan }}</td>
-                                <td>{{ $histori->status }}</td>
+                              <td>{{ $histori->id }}</td>
+                              <td>{{ $histori->masyarakat_id }}</td>
+                              <td>{{ $histori->tgl_pengaduan }}</td>
+                              <td>{{ $histori->deskripsi }}</td>
+                              <td>{{ $histori->lokasi_pengaduan }}</td>
+                              <td>{{ $histori->foto_pengaduan }}</td>
+                              <td>{{ $histori->status }}</td>
                             </tr>
                             @endforeach
                         </tbody>
