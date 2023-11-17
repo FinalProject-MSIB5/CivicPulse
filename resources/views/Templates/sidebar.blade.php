@@ -59,7 +59,7 @@
                       <div class="menu-title">Pengaduan</div>
                     </a>
                     <ul>
-                      <li> <a href="{{url('/ajukan_pengaduan')}}"><i class="bx bx-right-arrow-alt"></i>Ajukan Pengaduan</a>
+                      <li> <a href="{{ url('/ajukan_pengaduan') }}"><i class="bx bx-right-arrow-alt"></i>Ajukan Pengaduan</a>
                       </li>
                       <li> <a href="{{url('/histori_pengaduan')}}"><i class="bx bx-right-arrow-alt"></i>Histori Pengaduan</a>
                       </li>

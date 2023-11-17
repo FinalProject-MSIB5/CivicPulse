@@ -37,6 +37,15 @@ Route::get('/profile_masyarakat', function () {
 });
 
 // MASYARAKAT
-Route::get('/histori_pengaduan', 
-  [HistoriController::class,'index']
-);
+Route::controller(HistoriController::class)->group(function() {
+  Route::get('/histori_pengaduan', 'index');
+  Route::get('/ajukan_pengaduan', 'viewForm');
+  Route::post('/store', 'store')->name('store');
+});
+
+
+// Route::get('/histori_pengaduan',[HistoriController::class,'index']);
+// Route::get('/ajukan_pengaduan',[HistoriController::class,'viewForm']);
+// Route::post('/store',[HistoriController::class,'store'])->name('store');
+
+// Route::resource('pengaduan',HistoriController::class);
