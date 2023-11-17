@@ -36,6 +36,8 @@ Route::get('/profile_masyarakat', function () {
   return view('Masyarakat.profile_masyarakat');
 });
 
+Route::get('/detail_pengaduan/{id}',[HistoriController::class, 'show'])->name('histori.show');
+
 // MASYARAKAT
 Route::controller(HistoriController::class)->group(function() {
   Route::get('/histori_pengaduan', 'index');

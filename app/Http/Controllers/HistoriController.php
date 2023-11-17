@@ -67,5 +67,12 @@
             ]);
         return redirect('/histori_pengaduan')->with('success','Data Pengajuan Pengaduan Berhasil Disimpan');
     }
+
+  public function show(string $id)
+  {
+      $historiPengaduan = Histori::find($id);
+      return view('Masyarakat.detail_pengaduan',compact('historiPengaduan'));
   }
+}
 ?>
+
