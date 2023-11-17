@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('masyarakat', function (Blueprint $table) {
-          $table->unsignedBigInteger('id')->primary();
-          $table->integer('nik')->unique();
+          $table->id();
+          $table->string('nik', 16)->unique();
           $table->string('no_telepon', 15);
           $table->text('alamat');
           $table->enum('gender', ['laki-laki', 'perempuan']);

@@ -17,6 +17,17 @@
             </div>
         </div>
         <!--end breadcrumb-->
+        @if($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+       @endif
+       @if($message = Session::get('error'))
+           <div class="alert alert-danger">
+               <p>{{ $message }}</p>
+           </div>
+       @endif
+       
         <h6 class="mb-0 text-uppercase">Histori Pengaduan</h6>
         <hr/>
         <div class="card">
@@ -24,8 +35,8 @@
                 <div class="table-responsive">
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
-                            <tr>
-                              <th>ID</th>
+                            <tr align="center">
+                              <th>No</th>
                               <th>Nama</th>
                               <th>Pengaduan</th>
                               <th>Alamat Pengaduan</th>
@@ -36,15 +47,27 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                            $no = 1;
+                            @endphp
                             @foreach($historiPengaduan as $histori)
                             <tr>
-                              <td>{{ $histori->id }}</td>
+                              <td>{{ $no++ }}</td>
                               <td>{{ $histori->masyarakat_id }}</td>
+                              <td>{{ $histori->nama_pengaduan }}</td>
                               <td>{{ $histori->tgl_pengaduan }}</td>
-                              <td>{{ $histori->deskripsi }}</td>
                               <td>{{ $histori->lokasi_pengaduan }}</td>
-                              <td>{{ $histori->foto_pengaduan }}</td>
-                              <td>{{ $histori->status }}</td>
+                              <td align="center">
+                                <img src="assets/img/{{ $histori->foto_pengaduan }}" width="30%" />
+                              </td>
+                              <td align="center">
+                                <span class="badge rounded-pill bg-danger"> {{ $histori->status }}</span>
+                               </td>
+                              <td align="center">
+                                <a class="btn btn-info btn-sm" href="" title="Detail Pengaduan">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                              </td>
                             </tr>
                             @endforeach
                         </tbody>
