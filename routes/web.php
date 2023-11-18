@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HistoriController;
+use App\Http\Controllers\TanggapanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,15 +24,20 @@ Route::get('/home', function () {
 });
 
 // ADMIN
+Route::controller(TanggapanController::class)->group(function() {
+  Route::get('/data_pengaduan', 'index');
+  Route::get('/data_user', 'data_user');
+  Route::get('/show_data/{id}', 'show')->name('show_data.show');
+  Route::put('/update_data/{id}','update');
+ 
+});
+
 Route::get('/dashboard', function () {
     return view('Admin.dashboard_admin');
 });
-Route::get('/pengaduan_admin', function () {
-    return view('Admin.data_pengaduan');
-});
-Route::get('/data_user', 
-  [UserController::class,'index']
-);
+
+
+
 Route::get('/profile_masyarakat', function () {
   return view('Masyarakat.profile_masyarakat');
 });

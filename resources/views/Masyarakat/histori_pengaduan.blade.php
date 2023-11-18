@@ -53,7 +53,7 @@
                             @foreach($historiPengaduan as $histori)
                             <tr>
                               <td>{{ $no++ }}</td>
-                              <td>{{ $histori->masyarakat_id }}</td>
+                              <td>{{ $histori->nama }}</td>
                               <td>{{ $histori->nama_pengaduan }}</td>
                               <td>{{ $histori->tgl_pengaduan }}</td>
                               <td>{{ $histori->lokasi_pengaduan }}</td>
@@ -61,7 +61,15 @@
                                 <img src="assets/img/{{ $histori->foto_pengaduan }}" width="30%" />
                               </td>
                               <td align="center">
+                                @if($histori->status == "Belum diproses")
                                 <span class="badge rounded-pill bg-danger"> {{ $histori->status }}</span>
+                                @endif
+                                @if($histori->status == "Proses")
+                                <span class="badge rounded-pill bg-warning"> {{ $histori->status }}</span>
+                                @endif
+                                @if($histori->status == "Selesai")
+                                <span class="badge rounded-pill bg-success"> {{ $histori->status }}</span>
+                                @endif
                                </td>
                               <td align="center">
                                 <a class="btn btn-info btn-sm" href="" title="Detail Pengaduan">

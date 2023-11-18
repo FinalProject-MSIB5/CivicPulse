@@ -2,7 +2,7 @@
 <div class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+            <img src="{{ asset('assets/images/logo-icon.png')}}" class="logo-icon" alt="logo icon">
         </div>
         <div>
             <h4 class="logo-text">Pengaduan Masyarakat</h4>
@@ -22,14 +22,14 @@
             </a>
         </li>
         <li>
-            <a href="{{ url('pengaduan_admin') }}">
+            <a href="{{ url('/data_pengaduan') }}">
                 <div class="parent-icon"><i class="bi bi-list-task"></i>
                 </div>
                 <div class="menu-title">Data Pengaduan</div>
             </a>
         </li>
         <li>
-            <a href="{{ url('data_user') }}">
+            <a href="{{ url('/data_user') }}">
                 <div class="parent-icon"><i class="bi bi-person-lines-fill"></i>
                 </div>
                 <div class="menu-title">Data User</div>

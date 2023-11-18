@@ -11,7 +11,11 @@
   {
     public function index()
     {
-        $historiPengaduan = Histori::all();
+        $historiPengaduan = DB::table('pengaduan_masyarakat')
+        ->join('masyarakat', 'masyarakat.id', '=', 'pengaduan_masyarakat.masyarakat_id')
+        ->join('users', 'users.id', '=', 'masyarakat.user_id')
+        ->select('users.nama', 'masyarakat.user_id', 'pengaduan_masyarakat.*')
+        ->get();
         return view('Masyarakat.histori_pengaduan', compact('historiPengaduan'));
     }
     
