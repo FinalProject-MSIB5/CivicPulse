@@ -64,7 +64,7 @@
                                 <span class="badge rounded-pill bg-danger"> {{ $histori->status }}</span>
                                </td>
                               <td align="center">
-                                <a class="btn btn-info btn-sm" href="" title="Detail Pengaduan">
+                                <a class="btn btn-info btn-sm" href="{{ route('histori.show', $historiPengaduan->id) }}" title="Detail Pengaduan">
                                     <i class="bi bi-eye"></i>
                                 </a>
                               </td>
