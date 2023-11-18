@@ -25,23 +25,28 @@
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
-                              <th>ID</th>
+                              <th>No</th>
+                              <th>Nama</th>
+                              <th>Email</th>
                               <th>NIK</th>
                               <th>No.Telepon</th>
-                              <th>Alamat</th>
                               <th>Gender</th>
-                              <th>Foto</th>
+                              <th>Alamat</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($dataUser as $listUser)
+                            @php
+                            $no = 1;
+                            @endphp
+                            @foreach($data_user as $listUser)
                             <tr>
-                              <td>{{ $listUser->id }}</td>
-                              <td>{{ $listUser->user_id }}</td>
+                              <td>{{ $no++ }}</td>
+                              <td>{{ $listUser->nama }}</td>
+                              <td>{{ $listUser->email}}</td>
                               <td>{{ $listUser->nik }}</td>
                               <td>{{ $listUser->no_telepon }}</td>
-                              <td>{{ $listUser->alamat }}</td>
                               <td>{{ $listUser->gender }}</td>
+                              <td>{{ $listUser->alamat }}</td>
                             </tr>
                             @endforeach
                         </tbody>
