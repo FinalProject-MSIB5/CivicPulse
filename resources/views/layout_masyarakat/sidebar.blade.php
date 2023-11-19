@@ -42,7 +42,7 @@
                   </li>
               
         <li class="mt-5">
-            <a href="index.html">
+            <a href="{{ url('/logout') }}">
                 <div class="parent-icon"><i class="bi bi-box-arrow-left"></i>
                 </div>
                 <div class="menu-title">Logout</div>
