@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HistoriController;
 use App\Http\Controllers\TanggapanController;
+use App\Http\Controllers\SesiController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,14 +20,22 @@ use App\Http\Controllers\TanggapanController;
 */
 
 Route::get('/', function () {
-    return view('Landingpage.home');
-});
-Route::get('/home', function () {
-    return view('Landingpage.home');
+  return view('Landingpage.home');
 });
 
+// LOGIN
+Route::get('/login', [SesiController::class, 'index'])->name('login');
+Route::post('/login', [SesiController::class, 'login']);
+
+Route::middleware(['auth'])->group(function () {
+  Route::get('/logout', [SesiController::class, 'logout']);
+  Route::get('/admin', [LoginController::class, 'admin'])->middleware('Permission:admin');
+  Route::get('/masyarakat', [LoginController::class, 'masyarakat']);
+});
+
+
 // ADMIN
-Route::get('/dashboard_admin',[DashboardAdminController::class,'index']);
+Route::get('/dashboard_admin',[DashboardAdminController::class,'index'])->name('dashboard_admin')->middleware('Permission:admin');
 Route::get('/excel-export',[DashboardAdminController::class,'export'])->name('excel-export');
 
 Route::controller(TanggapanController::class)->group(function() {
@@ -39,7 +49,7 @@ Route::controller(TanggapanController::class)->group(function() {
 // MASYARAKAT
 Route::get('/dashboard_masyarakat', function () {
   return view('Masyarakat.dashboard_masyarakat');
-});
+})->name('dashboard_masyarakat')->middleware('Permission:masyarakat');
 
 Route::get('/profile_masyarakat', function () {
   return view('Masyarakat.profile_masyarakat');
