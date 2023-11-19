@@ -1,4 +1,4 @@
-@extends('Templates.index')
+@extends('layout_masyarakat.index')
 @section('content')
 <div class="page-wrapper">
     <div class="page-content">

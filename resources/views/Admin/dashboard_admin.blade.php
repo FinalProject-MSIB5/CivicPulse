@@ -1,9 +1,4 @@
-{{-- @php
-    var_dump(json_encode($namaBulan->pluck('month_name')));
-    die;
-@endphp --}}
-
-@extends('Templates.index')
+@extends('layout_admin.index')
 @section('content')
  	<!--start page wrapper -->
      <div class="page-wrapper">

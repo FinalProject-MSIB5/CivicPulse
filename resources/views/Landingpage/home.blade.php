@@ -17,9 +17,6 @@
                 Melalui <span id="nama-website">[Nama Website]</span>, kami menyediakan sarana untuk Anda memberikan kontribusi
                 dalam menjaga dan meningkatkan kualitas fasilitas-fasilitas di sekitar Anda.
               </p>
-              {{-- <a href="#" class="download-btn"><i class="bx bxl-play-store"></i> Google Play</a> --}}
-              {{-- <a href="#" type="button" class="btn btn-secondary">Yuk Login</button></a> --}}
-              {{-- <a href="#" class="download-btn"><i class="bx bxl-apple"></i> App Store</a> --}}
               </div>
             </div>
             <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img" data-aos="fade-up">

@@ -25,6 +25,9 @@ Route::get('/home', function () {
 });
 
 // ADMIN
+Route::get('/dashboard_admin',[DashboardAdminController::class,'index']);
+Route::get('/excel-export',[DashboardAdminController::class,'export'])->name('excel-export');
+
 Route::controller(TanggapanController::class)->group(function() {
   Route::get('/data_pengaduan', 'index');
   Route::get('/data_user', 'data_user');
@@ -32,25 +35,19 @@ Route::controller(TanggapanController::class)->group(function() {
   Route::put('/update_data/{id}','update');
 });
 
-Route::get('/excel-export',[DashboardAdminController::class,'export'])->name('excel-export');
-Route::get('/dashboard-admin',[DashboardAdminController::class,'index']);
-
-
 
 // MASYARAKAT
+Route::get('/dashboard_masyarakat', function () {
+  return view('Masyarakat.dashboard_masyarakat');
+});
+
+Route::get('/profile_masyarakat', function () {
+  return view('Masyarakat.profile_masyarakat');
+});
+
 Route::controller(HistoriController::class)->group(function() {
   Route::get('/histori_pengaduan', 'index');
   Route::get('/ajukan_pengaduan', 'viewForm');
   Route::post('/store', 'store')->name('store');
   Route::get('/detail_pengaduan/{id}','show')->name('histori.show');
 });
-Route::get('/profile_masyarakat', function () {
-  return view('Masyarakat.profile_masyarakat');
-});
-
-
-// Route::get('/histori_pengaduan',[HistoriController::class,'index']);
-// Route::get('/ajukan_pengaduan',[HistoriController::class,'viewForm']);
-// Route::post('/store',[HistoriController::class,'store'])->name('store');
-
-// Route::resource('pengaduan',HistoriController::class);

@@ -1,4 +1,4 @@
-@extends('Templates.index')
+@extends('layout_admin.index')
 @section('content')
 
 <div class="page-wrapper">
