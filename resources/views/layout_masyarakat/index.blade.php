@@ -39,17 +39,17 @@
 <body>
 	<!--wrapper-->
 	<div class="wrapper">
-		 @include('Templates.sidebar')
-		 @include('Templates.navbar')
+    @include('layout_masyarakat.sidebar')
+    @include('layout_masyarakat.navbar')
 
-		@yield('content')
-		<!--start overlay-->
-		<div class="overlay toggle-icon"></div>
-		<!--end overlay-->
-		<!--Start Back To Top Button-->
-		  <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+   @yield('content')
+   <!--start overlay-->
+   <div class="overlay toggle-icon"></div>
+   <!--end overlay-->
+   <!--Start Back To Top Button-->
+     <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
 
-		@include('Templates.footer')
+   @include('layout_masyarakat.footer')
 	</div>
 	<!--end wrapper-->
 	
