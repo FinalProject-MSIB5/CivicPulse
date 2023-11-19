@@ -17,24 +17,26 @@
         </div>
     </div>
     <!--end breadcrumb-->
-        <div class="card mb-3" style="max-width: 100%;">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="{{ asset('assets/img/'. $dataPengaduan->foto_pengaduan) }}" alt="foto_pengaduan" width="100%">
+        <div class="card">
+            <div class="row">
+              <div class="col-md-6">
+                <center>
+                <img src="{{ asset('assets/img/'. $dataPengaduan->foto_pengaduan) }}" alt="foto_pengaduan" width="100%" class="d-flex">
+                </center>
               </div>
-              <div class="col-md-8">
+              <div class="col-md-6">
                 <div class="card-body">
                  <h4 class="card-title">Data Pengaduan Masyarakat</h4>
                  <hr>
                  <table width="90%" cellpadding="10">
                     <tbody>
                         <tr>
-                        <td width="20%">Nama Masyarakat</td>
+                        <td width="40%">Nama Masyarakat</td>
                         <td width="3%">:</td>
                         <td>{{ $dataPengaduan->nama }}</td>
                         </tr>
                         <tr>
-                        <td>Pengaduan :</td>
+                        <td>Pengaduan </td>
                         <td>:</td>
                         <td>{{ $dataPengaduan->nama_pengaduan }}</td>
                         </tr>

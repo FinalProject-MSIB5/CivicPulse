@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardAdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HistoriController;
@@ -29,26 +30,22 @@ Route::controller(TanggapanController::class)->group(function() {
   Route::get('/data_user', 'data_user');
   Route::get('/show_data/{id}', 'show')->name('show_data.show');
   Route::put('/update_data/{id}','update');
- 
 });
 
-Route::get('/dashboard', function () {
-    return view('Admin.dashboard_admin');
-});
+Route::get('/excel-export',[DashboardAdminController::class,'export'])->name('excel-export');
+Route::get('/dashboard-admin',[DashboardAdminController::class,'index']);
 
 
-
-Route::get('/profile_masyarakat', function () {
-  return view('Masyarakat.profile_masyarakat');
-});
-
-Route::get('/detail_pengaduan/{id}',[HistoriController::class, 'show'])->name('histori.show');
 
 // MASYARAKAT
 Route::controller(HistoriController::class)->group(function() {
   Route::get('/histori_pengaduan', 'index');
   Route::get('/ajukan_pengaduan', 'viewForm');
   Route::post('/store', 'store')->name('store');
+  Route::get('/detail_pengaduan/{id}','show')->name('histori.show');
+});
+Route::get('/profile_masyarakat', function () {
+  return view('Masyarakat.profile_masyarakat');
 });
 
 

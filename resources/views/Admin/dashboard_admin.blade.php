@@ -1,60 +1,37 @@
+{{-- @php
+    var_dump(json_encode($namaBulan->pluck('month_name')));
+    die;
+@endphp --}}
+
 @extends('Templates.index')
 @section('content')
  	<!--start page wrapper -->
      <div class="page-wrapper">
         <div class="page-content">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
-                <div class="col">
-                    <div class="card radius-10 border-primary border-start border-0 border-4">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <p class="mb-0">Total Orders</p>
-                                    <h4 class="my-1 text-primary">845</h4>
-                                </div>
-                                <div class="text-primary ms-auto font-35"><i class="bx bx-cart-alt"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card radius-10 border-success border-start border-0 border-4">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <p class="mb-0">Total Income</p>
-                                    <h4 class="my-1 text-success">$89,245</h4>
-                                </div>
-                                <div class="text-success ms-auto font-35"><i class="bx bx-dollar"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
+            <div class="row ">
+                <div class="col-6">
                     <div class="card radius-10  border-warning border-start border-0 border-4">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div>
-                                    <p class="mb-0">Total Users</p>
-                                    <h4 class="text-warning my-1">24.5K</h4>
+                                    <p style="font-size:20px; " class="mb-1">Jumlah Masyarakat Yang Melakukan Pengaduan</p>
+                                    <h4 class="text-warning my-1">{{ $ar_user }}</h4>
                                 </div>
-                                <div class="text-warning ms-auto font-35"><i class="bx bx-user-pin"></i>
+                                <div class="text-warning ms-auto font-35"><i class="bx bx-user-pin" style="font-size: 55px;"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-6">
                     <div class="card radius-10 border-danger border-start border-0 border-4">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div>
-                                    <p class="mb-0">Comments</p>
-                                    <h4 class="my-1 text-danger">8569</h4>
+                                    <p  style="font-size:20px;" class="mb-1">Total Pengaduan</p>
+                                    <h4 class="my-1 text-danger">{{ $ar_pengaduan  }}</h4>
                                 </div>
-                                <div class="text-danger ms-auto font-35"><i class="bx bx-comment-detail"></i>
+                                <div class="text-danger ms-auto font-35"><i class="bx bx-comment-detail" style="font-size: 55px;"></i>
                                 </div>
                             </div>
                         </div>
@@ -68,29 +45,65 @@
                     <div class="card-header">
                         <div class="d-flex align-items-center">
                             <div>
-                                <h6 class="mb-0">Sales Overview</h6>
-                            </div>
-                            <div class="dropdown ms-auto">
-                                <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown"><i class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    </li>
-                                </ul>
+                                <h6 class="mb-0">Jumlah Pengaduan Perbulan</h6>
                             </div>
                         </div>
                     </div>
                       <div class="card-body">
                         <div class="chart-container-0">
                             <canvas id="chart1"></canvas>
-                          </div>
+                        </div>
+
+                        <script>
+                            
+                            $(function() {
+                                "use strict";                                
+
+                            var ctx = document.getElementById("chart1").getContext('2d');
+                            var gradientStroke1 = ctx.createLinearGradient(0, 0, 0, 300);
+                                gradientStroke1.addColorStop(0, '#6078ea');  
+                                gradientStroke1.addColorStop(1, '#17c5ea'); 
+                            
+                            var gradientStroke2 = ctx.createLinearGradient(0, 0, 0, 300);
+                                gradientStroke2.addColorStop(0, '#ff8359');
+                                gradientStroke2.addColorStop(1, '#ffdf40');
+
+                                var myChart = new Chart(ctx, {
+                                    type: 'bar',
+                                    data: {
+                                    labels: {!! json_encode($namaBulan->pluck('month_name')) !!},
+                                    datasets: [{
+                                        label: 'Pengaduan Masyarakat',
+                                        data: {!! json_encode($pengaduan_perbulan->pluck('total')) !!},
+                                        borderColor: '#ffc107',
+                                        backgroundColor: '#ffc107',
+                                        hoverBackgroundColor: '#ffc107',
+                                        pointRadius: 0,
+                                        fill: false,
+                                        borderWidth: 0
+                                    }]
+                                    },
+                                    options:{
+                                    maintainAspectRatio: false,
+                                    legend: {
+                                        position: 'bottom',
+                                        display: true,
+                                        labels: {
+                                            boxWidth:40
+                                        }
+                                        },
+                                        tooltips: {
+                                        displayColors:false,
+                                        },	
+                                    scales: {
+                                        xAxes: [{
+                                            barPercentage: .5
+                                        }]
+                                        }
+                                    }
+                                });
+                            });	
+                        </script>
                       </div>
                   </div>
                </div>
@@ -99,154 +112,102 @@
                     <div class="card-header">
                         <div class="d-flex align-items-center">
                             <div>
-                                <h6 class="mb-0">Trending Products</h6>
-                            </div>
-                            <div class="dropdown ms-auto">
-                                <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown"><i class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    </li>
-                                </ul>
+                                <h6 class="mb-0">Jumlah Status Pengaduan</h6>
                             </div>
                         </div>
                     </div>
                        <div class="card-body">
                         <div class="chart-container-0">
                             <canvas id="chart2"></canvas>
+
+                            <script>
+                             $(function() {"use strict";
+                             var label = [@foreach($ar_label as $label) '{{$label}}', @endforeach];
+                             var ctx = document.getElementById("chart2").getContext('2d');
+                                var myChart = new Chart(ctx, {
+                                    type: 'doughnut',
+                                    data: {
+                                    labels: label,
+                                    datasets: [{
+                                        backgroundColor: [
+                                        '#fd3550',
+                                        '#008cff',
+                                        '#15ca20'
+                                        ],
+                                        hoverBackgroundColor: [
+                                        '#fd3550',
+                                        '#008cff',
+                                        '#15ca20'
+                                        ],
+                                        data: ['{{ $stt_blm }}','{{ $stt_proses }}','{{ $stt_selesai }}'],
+                                            borderWidth: [1, 1, 1]
+                                    }]
+                                    },
+                                    options: {
+                                        maintainAspectRatio: false,
+                                        cutoutPercentage: 75,
+                                        legend: {
+                                        position: 'bottom',
+                                        display: true,
+                                        labels: {
+                                            boxWidth:20
+                                        }
+                                        },
+                                        tooltips: {
+                                        displayColors:false,
+                                        }
+                                    }
+                                });
+
+
+
+                                // worl map
+
+                                jQuery('#geographic-map-2').vectorMap(
+                                {
+                                map: 'world_mill_en',
+                                backgroundColor: 'transparent',
+                                borderColor: '#818181',
+                                borderOpacity: 0.25,
+                                borderWidth: 1,
+                                zoomOnScroll: false,
+                                color: '#009efb',
+                                regionStyle : {
+                                    initial : {
+                                    fill : '#008cff'
+                                    }
+                                },
+                                markerStyle: {
+                                initial: {
+                                            r: 9,
+                                            'fill': '#fff',
+                                            'fill-opacity':1,
+                                            'stroke': '#000',
+                                            'stroke-width' : 5,
+                                            'stroke-opacity': 0.4
+                                            },
+                                            },
+                                enableZoom: true,
+                                hoverColor: '#009efb',
+                                markers : [{
+                                    latLng : [21.00, 78.00],
+                                    name : 'Lorem Ipsum Dollar'
+                                
+                                }],
+                                hoverOpacity: null,
+                                normalizeFunction: 'linear',
+                                scaleColors: ['#b6d6ff', '#005ace'],
+                                selectedColor: '#c9dfaf',
+                                selectedRegions: [],
+                                showTooltip: true,
+                                });
+                             });
+                            </script>
                           </div>
                        </div>
                    </div>
                </div>
             </div><!--end row-->
-            
-
-             <div class="card radius-10">
-                     <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h6 class="mb-0">Recent Orders</h6>
-                            </div>
-                            <div class="dropdown ms-auto">
-                                <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown"><i class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                     <div class="table-responsive">
-                       <table class="table align-middle mb-0">
-                        <thead class="table-light">
-                         <tr>
-                           <th>Product</th>
-                           <th>Photo</th>
-                           <th>Product ID</th>
-                           <th>Status</th>
-                           <th>Amount</th>
-                           <th>Date</th>
-                         </tr>
-                         </thead>
-                         <tbody><tr>
-                          <td>Iphone 5</td>
-                          <td><img src="assets/images/products/01.png" class="product-img-2" alt="product img"></td>
-                          <td>#9405822</td>
-                          <td><span class="badge bg-success text-white shadow-sm">Paid</span></td>
-                          <td>$1250.00</td>
-                          <td>03 Feb 2020</td>
-                         </tr>
-      
-                         <tr>
-                          <td>Earphone GL</td>
-                          <td><img src="assets/images/products/02.png" class="product-img-2" alt="product img"></td>
-                          <td>#8304620</td>
-                          <td><span class="badge bg-info text-white shadow-sm">Pending</span></td>
-                          <td>$1500.00</td>
-                          <td>05 Feb 2020</td>
-                         </tr>
-      
-                         <tr>
-                          <td>HD Hand Camera</td>
-                          <td><img src="assets/images/products/03.png" class="product-img-2" alt="product img"></td>
-                          <td>#4736890</td>
-                          <td><span class="badge bg-danger text-white shadow-sm">Failed</span></td>
-                          <td>$1400.00</td>
-                          <td>06 Feb 2020</td>
-                         </tr>
-      
-                         <tr>
-                          <td>Clasic Shoes</td>
-                          <td><img src="assets/images/products/04.png" class="product-img-2" alt="product img"></td>
-                          <td>#8543765</td>
-                          <td><span class="badge bg-success text-white shadow-sm">Paid</span></td>
-                          <td>$1200.00</td>
-                          <td>14 Feb 2020</td>
-                         </tr>
-                         <tr>
-                          <td>Sitting Chair</td>
-                          <td><img src="assets/images/products/06.png" class="product-img-2" alt="product img"></td>
-                          <td>#9629240</td>
-                          <td><span class="badge bg-info text-white shadow-sm">Pending</span></td>
-                          <td>$1500.00</td>
-                          <td>18 Feb 2020</td>
-                         </tr>
-                         <tr>
-                          <td>Hand Watch</td>
-                          <td><img src="assets/images/products/05.png" class="product-img-2" alt="product img"></td>
-                          <td>#8506790</td>
-                          <td><span class="badge bg-danger text-white shadow-sm">Failed</span></td>
-                          <td>$1800.00</td>
-                          <td>21 Feb 2020</td>
-                         </tr>
-                        </tbody>
-                      </table>
-                      </div>
-                     </div>
-                  </div>
-
-                  <div class="card radius-10 w-100">
-                    <div class="card-header bg-transparent">
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h6 class="mb-0">World Map</h6>
-                            </div>
-                            <div class="dropdown ms-auto">
-                                <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown"><i class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                       </div>
-                    <div class="card-body">
-                        <div id="geographic-map-2"></div>
-                     </div>
-                   </div>
-
         </div>
     </div>
     <!--end page wrapper -->   
