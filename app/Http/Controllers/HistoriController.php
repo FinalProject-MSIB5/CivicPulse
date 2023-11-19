@@ -74,8 +74,23 @@
 
   public function show(string $id)
   {
-      $historiPengaduan = Histori::find($id);
-      return view('Masyarakat.detail_pengaduan',compact('historiPengaduan'));
+      
+      $historiPengaduan = Pengaduan_masyarakat::find($id);
+      $dataPengaduan = DB::table('pengaduan_masyarakat')
+      ->join('masyarakat', 'masyarakat.id', '=', 'pengaduan_masyarakat.masyarakat_id')
+      ->join('users', 'users.id', '=', 'masyarakat.user_id')
+      ->select('users.nama', 'masyarakat.user_id', 'pengaduan_masyarakat.*')
+      ->where('pengaduan_masyarakat.id', $id)
+      ->first();
+      $dataTanggapan = DB::table('tanggapan')
+      ->join('pengaduan_masyarakat','pengaduan_masyarakat.id','=','tanggapan.pengaduan_id')
+      ->join('masyarakat', 'masyarakat.id', '=', 'pengaduan_masyarakat.masyarakat_id')  
+      ->join('users', 'users.id', '=', 'masyarakat.user_id')
+      ->select('users.nama', 'masyarakat.id','pengaduan_masyarakat.*','tanggapan.tgl_tanggapan','tanggapan.keterangan')
+      ->where('pengaduan_masyarakat.id', $id)
+      ->first();
+    
+      return view('Masyarakat.detail_pengaduan',compact('historiPengaduan','dataPengaduan','dataTanggapan'));
   }
 }
 ?>

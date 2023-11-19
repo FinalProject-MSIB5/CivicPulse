@@ -72,7 +72,7 @@
                                 @endif
                                </td>
                               <td align="center">
-                                <a class="btn btn-info btn-sm" href="{{ route('histori.show', $historiPengaduan->id) }}" title="Detail Pengaduan">
+                                <a class="btn btn-info btn-sm" href="{{ route('histori.show', $histori->id) }}" title="Detail Pengaduan">
                                     <i class="bi bi-eye"></i>
                                 </a>
                               </td>

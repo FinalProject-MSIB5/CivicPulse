@@ -27,8 +27,17 @@
                <p>{{ $message }}</p>
            </div>
        @endif
-       
-        <h6 class="mb-0 text-uppercase">Data Pengaduan</h6>
+        <div class="row">
+            <div class="col-2">
+                <h5 class="mt-2 text-uppercase" >Data Pengaduan</h5>
+            </div>
+            <div class="col-10">
+                <a href="{{ url('/excel-export') }}" class="btn btn-success btn-sm" target="_blank" title="Export to Excel">
+                    <i class="bi bi-file-earmark-spreadsheet"></i>
+                </a>
+            </div>
+        </div>
+    
         <hr/>
         <div class="card">
             <div class="card-body">

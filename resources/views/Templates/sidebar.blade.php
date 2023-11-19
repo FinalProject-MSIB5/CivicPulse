@@ -15,7 +15,7 @@
        
         <li class="menu-label"> Menu Admin </li>
         <li>
-            <a href="{{ url('dashboard') }}">
+            <a href="{{ url('/dashboard-admin') }}">
                 <div class="parent-icon"><i class='bx bx-home-circle'></i>
                 </div>
                 <div class="menu-title">Dashboard</div>
