@@ -3,7 +3,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1>Pengaduan Online</h1>
+        <h1>Civic Pulse</h1>
       </div>
 
       <nav id="navbar" class="navbar">

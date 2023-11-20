@@ -1,33 +1,17 @@
-
-  <!-- ======= Footer ======= -->
+<!-- ======= Footer ======= -->
   <footer id="footer">
-
-    {{-- <div class="footer-newsletter">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-6">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-        </div>
-      </div>
-    </div> --}}
-
     <div class="footer-top">
       <div class="container">
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Appland</h3>
+            <h3>Civic Pulse</h3>
             <p>
-              Jl. Menteng Raya No. 666 <br>
-              Jakarta Pusat, DKI Jakarta 12345<br>
+              Jl. Pantai Indah Kapuk No. 666 <br>
+              Jakarta Utara, DKI Jakarta 14470<br>
               Indonesia <br><br>
               <strong>Phone:</strong> +62 1234 5678<br>
-              <strong>Email:</strong> info@example.com<br>
+              <strong>Email:</strong> civicpulse@gmail.com<br>
             </p>
           </div>
 
@@ -71,14 +55,10 @@
 
     <div class="container py-4">
       <div class="copyright">
-        &copy; Copyright <strong><span>Appland</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Civic Pulse</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-app-landing-page-template/ -->
         Designed by <a href="https://bootstrapmade.com/">Kelompok 1 Group 2</a>
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </footer>
