@@ -15,8 +15,6 @@ class DashboardAdminController extends Controller
 {
     public function index()
     {
-     
-        
         $ar_user = Masyarakat::count();
         $ar_pengaduan = Pengaduan_masyarakat::count();
         $ar_label =['Belum diproses','Proses','Selesai'];
