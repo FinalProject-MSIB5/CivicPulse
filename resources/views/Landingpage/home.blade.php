@@ -9,12 +9,12 @@
             <div>
               <h1>Pengaduan Fasilitas Masyarakat</h1>
               <p>
-                Selamat datang di <span id="nama-website">[Nama Website]</span>, platform pengaduan fasilitas masyarakat
+                Selamat datang di <span id="nama-website">Civic Pulse</span>, platform pengaduan fasilitas masyarakat
                 yang didedikasikan untuk memperbaiki dan meningkatkan kualitas hidup kita semua. Kami percaya bahwa setiap
                 warga memiliki hak untuk hidup dalam lingkungan yang aman, bersih, dan nyaman.
               </p>
               <p>
-                Melalui <span id="nama-website">[Nama Website]</span>, kami menyediakan sarana untuk Anda memberikan kontribusi
+                Melalui <span id="nama-website">Civic Pulse</span>, kami menyediakan sarana untuk Anda memberikan kontribusi
                 dalam menjaga dan meningkatkan kualitas fasilitas-fasilitas di sekitar Anda.
               </p>
               </div>
@@ -32,7 +32,7 @@
 
         <div class="section-title">
           <h2>Mekanisme Penggunaan</h2>
-          <p>Dengan menggunakan platform pengaduan masyarakat kami,Anda dapat dengan mudah melibatkan diri dalam proses
+          <p>Dengan menggunakan platform pengaduan masyarakat kami, Anda dapat dengan mudah melibatkan diri dalam proses
             perbaikan dan pemeliharaan fasilitas di sekitar Anda. Berikut adalah langkah-langkah yang dapat Anda
             tempuh :
           </p>
