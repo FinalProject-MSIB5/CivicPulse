@@ -99,11 +99,11 @@
                   Program Studi : Sistem Informasi
                 </p>
                 <div class="social-links mt-3">
-                  <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                  <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                  <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                  <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                  <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                  <a href="https://facebook.com/hadi.prasetiyo.76/" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+                  <a href="https://github.com/hadiprasetiyo/" target="_blank" class="github"><i class="bx bxl-github"></i></a>
+                  <a href="https://instagram.com/hadiiprasetiyo/" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+                  <a href="https://discordapp.com/users/hadiiyok/" target="_blank" class="discord"><i class="bx bxl-discord"></i></a>
+                  <a href="https://linkedin.com/in/hadiprasetiyo/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                 </div>
               </div>
             </div>
@@ -118,11 +118,11 @@
                   Program Studi : Teknik Informatika
                 </p>
                 <div class="social-links mt-3">
-                  <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                  <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                  <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                  <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                  <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                  <a href="#" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+                  <a href="#" target="_blank" class="github"><i class="bx bxl-github"></i></a>
+                  <a href="#" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+                  <a href="#" target="_blank" class="discord"><i class="bx bxl-discord"></i></a>
+                  <a href="#" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                 </div>
               </div>
             </div>
@@ -137,11 +137,11 @@
                   Program Studi : Sistem Informasi
                 </p>
                 <div class="social-links mt-3">
-                  <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                  <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                  <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                  <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                  <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                  <a href="#" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+                  <a href="#" target="_blank" class="github"><i class="bx bxl-github"></i></a>
+                  <a href="#" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+                  <a href="#" target="_blank" class="discord"><i class="bx bxl-discord"></i></a>
+                  <a href="#" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                 </div>
               </div>
             </div>
@@ -156,11 +156,11 @@
                   Program Studi : Teknik Informatika
                 </p>
                 <div class="social-links mt-3">
-                  <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                  <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                  <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                  <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                  <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                  <a href="#" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+                  <a href="#" target="_blank" class="github"><i class="bx bxl-github"></i></a>
+                  <a href="#" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+                  <a href="#" target="_blank" class="discord"><i class="bx bxl-discord"></i></a>
+                  <a href="#" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                 </div>
               </div>
             </div>
