@@ -1,3 +1,3 @@
 <footer class="page-footer">
-    <p class="mb-0">Copyright © 2021. All right reserved.</p>
+  Copyright © 2023. <strong><span>Civic Pulse</span></strong>. All Rights Reserved.
 </footer>
