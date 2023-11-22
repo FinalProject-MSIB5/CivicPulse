@@ -1,3 +1,14 @@
+@php
+$user = Auth::user();
+$idlogin = $user->id;
+$join =DB::table('masyarakat')
+        ->join('users', 'users.id', '=', 'masyarakat.user_id')
+        ->select('users.nama as nama_masyarakat','masyarakat.*')
+        ->where('users.id', $idlogin)
+        ->first();
+// var_dump($join);
+// die;
+@endphp
 <!--start header -->
 <header>
     <div class="topbar d-flex align-items-center">
@@ -8,11 +19,16 @@
             </div>
             {{-- @foreach ($data_user as $user) --}}
               <div class="user-box dropdown">
-                <img src="{{ asset('assets/images/avatars/avatar-2.png') }}" class="user-img" alt="user avatar">
+                @if($join->foto == null)
+                <img src="{{ asset('assets/img/profile/profile.png') }}" class="user-img" alt="user avatar">
+                @endif
+                @if($join->foto != null)
+                <img src="{{ asset('assets/img/profile/' . $join->foto) }}" class="user-img" alt="user avatar">
+                @endif
                 
                 <div class="user-info ps-3">
-                  <p class="user-name mb-0">gatau</p>
-                  <p class="designattion mb-0">Web Designer</p>
+                  <p class="user-name mb-0">{{ $join->nama_masyarakat }}</p>
+                  <p class="designattion mb-0">Admin</p>
                 </div>
               </div>
             {{-- @endforeach --}}

@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <title>Registrasi</title>
+<link rel="icon" href="{{ asset('assets/images/logo-icon.png')}}" type="image/png" />
+<title>Registrasi</title>
 </head>
 <body>
     <div class="container py-5">
@@ -50,7 +51,7 @@
                 @endforeach
             </div>
             <div class="mb-3">
-                <label for="foto" class="form-label">Foto Pengaduan</label>
+                <label for="foto" class="form-label">Foto</label>
                 <input type="file" class="form-control"  name="foto" value="" />
             </div>
             <p>

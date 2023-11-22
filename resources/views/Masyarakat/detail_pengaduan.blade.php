@@ -28,7 +28,7 @@
                         <tr>
                         <td>Tanggal Pengaduan</td>
                         <td>:</td>
-                        <td>{{ $dataPengaduan->tgl_pengaduan }}</td>
+                        <td>{{ \Carbon\Carbon::parse($dataPengaduan->tgl_pengaduan)->format('l, d F Y') }}</td>
                         </tr>
                         <tr>
                         <td>Status</td>
@@ -47,10 +47,12 @@
                         </tr>  
 
                         @if($dataTanggapan != Null)
+                        <tr>
                         <td>Tanggal Tanggapan Pengaduan</td>
                         <td>:</td>
-                        <td>{{$dataTanggapan->tgl_tanggapan }}</td>
-                        </tr>  
+                        <td>{{ \Carbon\Carbon::parse($dataTanggapan->tgl_tanggapan)->format('l, d F Y') }}</td>
+                        </tr>
+                        <tr>  
                         <td>Keterangan</td>
                         <td>:</td>
                         <td>{{$dataTanggapan->keterangan }}</td>

@@ -24,7 +24,7 @@
                 <div class="table-responsive">
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
-                            <tr>
+                            <tr align="center">
                               <th>No</th>
                               <th>Nama</th>
                               <th>Email</th>
@@ -39,7 +39,8 @@
                             $no = 1;
                             @endphp
                             @foreach($data_user as $listUser)
-                            <tr>
+                            @if($listUser->role == 'masyarakat') 
+                            <tr align="center">
                               <td>{{ $no++ }}</td>
                               <td>{{ $listUser->nama }}</td>
                               <td>{{ $listUser->email}}</td>
@@ -48,6 +49,7 @@
                               <td>{{ $listUser->gender }}</td>
                               <td>{{ $listUser->alamat }}</td>
                             </tr>
+                            @endif
                             @endforeach
                         </tbody>
                     </table>
