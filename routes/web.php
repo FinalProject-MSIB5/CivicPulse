@@ -7,6 +7,7 @@ use App\Http\Controllers\HistoriController;
 use App\Http\Controllers\TanggapanController;
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegistrasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,9 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/masyarakat', [LoginController::class, 'masyarakat']);
 });
 
+// REGISTER
+Route::get('/registrasi', [RegistrasiController::class, 'Registrasi'])->name('registrasi');
+Route::post('/registrasi/post', [RegistrasiController::class, 'createRegistrasi']);
 
 // ADMIN
 Route::get('/dashboard_admin',[DashboardAdminController::class,'index'])->name('dashboard_admin')->middleware('Permission:admin');
@@ -44,7 +48,6 @@ Route::controller(TanggapanController::class)->group(function() {
   Route::get('/show_data/{id}', 'show')->name('show_data.show');
   Route::put('/update_data/{id}','update');
 });
-
 
 // MASYARAKAT
 Route::get('/dashboard_masyarakat', function () {
