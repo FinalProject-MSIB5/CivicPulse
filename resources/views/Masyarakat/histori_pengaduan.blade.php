@@ -39,8 +39,8 @@
                               <th>No</th>
                               <th>Nama</th>
                               <th>Pengaduan</th>
-                              <th>Alamat Pengaduan</th>
                               <th>Tanggal Pengaduan</th>
+                              <th>Alamat Pengaduan</th>
                               <th>Foto</th>
                               <th>Status</th>
                               <th>Action</th>
@@ -55,10 +55,10 @@
                               <td>{{ $no++ }}</td>
                               <td>{{ $histori->nama }}</td>
                               <td>{{ $histori->nama_pengaduan }}</td>
-                              <td>{{ $histori->tgl_pengaduan }}</td>
+                              <td>{{ \Carbon\Carbon::parse($histori->tgl_pengaduan)->format('l, d M Y') }}</td>
                               <td>{{ $histori->lokasi_pengaduan }}</td>
                               <td align="center">
-                                <img src="assets/img/pengaduan/{{ $histori->foto_pengaduan }}" width="30%" />
+                                <img src="{{ asset('assets/img/pengaduan/' . $histori->foto_pengaduan) }}" width="30%" />
                               </td>
                               <td align="center">
                                 @if($histori->status == "Belum diproses")

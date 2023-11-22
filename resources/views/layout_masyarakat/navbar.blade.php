@@ -23,7 +23,7 @@ $join =DB::table('masyarakat')
                     <img src="{{ asset('assets/img/profile/profile.png') }}" class="user-img" alt="user avatar">
                     @endif
                     @if($join->foto != null)
-                    <img src="assets/img/profile/{{ $join->foto}}" class="user-img" alt="user avatar">
+                    <img src="{{ asset('assets/img/profile/' . $join->foto) }}" class="user-img" alt="user avatar">
                     @endif
                   
                     <div class="user-info ps-3">

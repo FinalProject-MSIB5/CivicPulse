@@ -23,7 +23,7 @@ class TanggapanController extends Controller
     {
         $data_user = DB::table('masyarakat')
         ->join('users', 'users.id', '=', 'masyarakat.user_id')
-        ->select('users.nama', 'users.email','masyarakat.*')
+        ->select('users.nama','users.role', 'users.email','masyarakat.*')
         ->get();
         return view('Admin.data_user', compact('data_user'));
     }
@@ -36,9 +36,14 @@ class TanggapanController extends Controller
         ->select('users.nama', 'masyarakat.user_id', 'pengaduan_masyarakat.*')
         ->where('pengaduan_masyarakat.id', $id)
         ->first();
-        // var_dump($dataPengaduan);
-        // die;
-        return view('Admin.form_tanggapan',compact('rs','dataPengaduan'));
+        $dataTanggapan = DB::table('tanggapan')
+        ->join('pengaduan_masyarakat','pengaduan_masyarakat.id','=','tanggapan.pengaduan_id')
+        ->join('masyarakat', 'masyarakat.id', '=', 'pengaduan_masyarakat.masyarakat_id')  
+        ->join('users', 'users.id', '=', 'masyarakat.user_id')
+        ->select('users.nama', 'masyarakat.id','pengaduan_masyarakat.*','tanggapan.tgl_tanggapan','tanggapan.keterangan')
+        ->where('pengaduan_masyarakat.id', $id)
+        ->first();
+        return view('Admin.form_tanggapan',compact('rs','dataPengaduan','dataTanggapan'));
     }
 
     public function update(Request $request, string $id){
@@ -75,8 +80,10 @@ class TanggapanController extends Controller
     {
         //sebelum hapus data, hapus terlebih dahulu fisik file fotonya jika ada
         $row = Pengaduan_masyarakat::find($id);
-        if(!empty($row->foto_pengaduan)) unlink('assets/img/pengaduan'.$row->foto_pengaduan);
+        
+        if(!empty($row->foto_pengaduan)) unlink('assets/img/pengaduan/'.$row->foto_pengaduan);
         //hapus datanya dari tabel
+        DB::table('tanggapan')->where('pengaduan_id', $id)->delete();
         Pengaduan_masyarakat::where('id',$id)->delete();
         return redirect()->back();
     } 

@@ -59,6 +59,7 @@ Route::get('/dashboard_masyarakat', function () {
 
 Route::controller(DashboardMasyarakatController::class)->group(function() {
   Route::get('/profile_masyarakat', 'profile');
+  Route::put('/update_profile/{id}','update')->name('update_profile');
 });
 Route::controller(HistoriController::class)->group(function() {
   Route::get('/histori_pengaduan', 'index');

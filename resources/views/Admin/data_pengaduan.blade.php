@@ -48,8 +48,8 @@
                               <th>No</th>
                               <th>Nama</th>
                               <th>Pengaduan</th>
-                              <th>Alamat Pengaduan</th>
                               <th>Tanggal Pengaduan</th>
+                              <th>Alamat Pengaduan</th>
                               <th>Foto</th>
                               <th>Status</th>
                               <th>Action</th>
@@ -60,16 +60,16 @@
                             $no = 1;
                             @endphp
                             @foreach($dataPengaduan as $histori)
-                            <tr>
+                            <tr align="center">
                               <td>{{ $no++ }}</td>
                               <td>{{ $histori->nama }}</td>
                               <td>{{ $histori->nama_pengaduan }}</td>
-                              <td>{{ $histori->tgl_pengaduan }}</td>
+                              <td>{{ \Carbon\Carbon::parse($histori->tgl_pengaduan)->format('l, d M Y')  }}</td>
                               <td>{{ $histori->lokasi_pengaduan }}</td>
-                              <td align="center">
-                                <img src="assets/img/pengaduan/{{ $histori->foto_pengaduan }}" width="30%" />
+                              <td >
+                                <img src="{{ asset('assets/img/profile/' . $histori->foto_pengaduan) }}" width="30%" />
                               </td>
-                              <td align="center">
+                              <td>
                                 @if($histori->status == "Belum diproses")
                                 <span class="badge rounded-pill bg-danger"> {{ $histori->status }}</span>
                                 @endif
@@ -87,9 +87,11 @@
                                     <a class="btn btn-warning btn-sm" href="{{ route('show_data.show', $histori->id) }}" title="Ubah Data Pengajuan">
                                         <i class="bi bi-pencil-fill"></i>
                                     </a>
+                                    @if($histori->status == "Selesai")
                                     <button type="submit" class="btn btn-danger btn-sm show-alert-delete-box" title="Hapus pengajuan">
                                         <i class="bi bi-trash"></i>
                                     </button>
+                                    @endif
                                 </form>
                               </td>
                             </tr>
