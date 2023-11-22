@@ -8,7 +8,7 @@
             @empty($dataPengaduan->foto_pengaduan)
             <img src="{{ asset('assets/images/gallery/01.png')}}" class="card-img-top" alt="...">     
             @else
-            <img src="{{ asset('assets/img/'. $dataPengaduan->foto_pengaduan) }}" alt="{{ $dataPengaduan->nama_pengaduan }}"class="img-fluid rounded-start" />
+            <img src="{{ asset('assets/img/pengaduan/'. $dataPengaduan->foto_pengaduan) }}" alt="{{ $dataPengaduan->nama_pengaduan }}"class="img-fluid rounded-start" />
             @endempty 
             <div class="card-body">
                 <h4 class="card-title">Data Pengaduan Fasilitas</h4>

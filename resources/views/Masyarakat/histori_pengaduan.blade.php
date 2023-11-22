@@ -58,7 +58,7 @@
                               <td>{{ $histori->tgl_pengaduan }}</td>
                               <td>{{ $histori->lokasi_pengaduan }}</td>
                               <td align="center">
-                                <img src="assets/img/{{ $histori->foto_pengaduan }}" width="30%" />
+                                <img src="assets/img/pengaduan/{{ $histori->foto_pengaduan }}" width="30%" />
                               </td>
                               <td align="center">
                                 @if($histori->status == "Belum diproses")

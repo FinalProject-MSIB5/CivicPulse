@@ -1,6 +1,10 @@
 <?php
-  namespace App\Http\Controllers;
 
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\Auth;
+ 
+  use App\Models\User;
   use Illuminate\Http\Request;
   use App\Models\Histori;
   use App\Models\Pengaduan_masyarakat;
@@ -11,10 +15,13 @@
   {
     public function index()
     {
+        $user = Auth::user();
+        $idlogin = $user->id;
         $historiPengaduan = DB::table('pengaduan_masyarakat')
         ->join('masyarakat', 'masyarakat.id', '=', 'pengaduan_masyarakat.masyarakat_id')
         ->join('users', 'users.id', '=', 'masyarakat.user_id')
-        ->select('users.nama', 'masyarakat.user_id', 'pengaduan_masyarakat.*')
+        ->select('users.nama', 'users.id','masyarakat.user_id', 'pengaduan_masyarakat.*')
+        ->where('users.id', $idlogin)
         ->get();
         return view('Masyarakat.histori_pengaduan', compact('historiPengaduan'));
     }
@@ -22,7 +29,14 @@
     // View Form
     public function viewForm()
     {
-        return view('Masyarakat.ajukan_pengaduan');
+        $user = Auth::user();
+        $idlogin = $user->id;
+        $join =DB::table('masyarakat')
+        ->join('users', 'users.id', '=', 'masyarakat.user_id')
+        ->select('masyarakat.id')
+        ->where('users.id', $idlogin)
+        ->first();
+        return view('Masyarakat.ajukan_pengaduan', compact('join'));
     }
 
     public function store(Request $request)
@@ -54,11 +68,14 @@
           $extensi = $request->foto_pengaduan->extension();
           $fileName =  $nama . '.' .  $extensi;
           //$fileName = $request->foto->getClientOriginalName();
-          $request->foto_pengaduan->move(public_path('assets/img'),$fileName);
+          $request->foto_pengaduan->move(public_path('assets/img/pengaduan'),$fileName);
         }
         else{
             $fileName = '';
         }
+
+      
+
         DB::table('pengaduan_masyarakat')->insert(
             [    
                  'masyarakat_id'=>$request->input('masyarakat_id'),

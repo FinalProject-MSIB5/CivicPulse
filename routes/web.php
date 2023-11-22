@@ -1,13 +1,15 @@
 <?php
 
-use App\Http\Controllers\DashboardAdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SesiController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HistoriController;
 use App\Http\Controllers\TanggapanController;
-use App\Http\Controllers\SesiController;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistrasiController;
+use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\DashboardMasyarakatController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +49,7 @@ Route::controller(TanggapanController::class)->group(function() {
   Route::get('/data_user', 'data_user');
   Route::get('/show_data/{id}', 'show')->name('show_data.show');
   Route::put('/update_data/{id}','update');
+  Route::delete('/delete/{id}', 'delete')->name('delete');
 });
 
 // MASYARAKAT
@@ -54,10 +57,9 @@ Route::get('/dashboard_masyarakat', function () {
   return view('Masyarakat.dashboard_masyarakat');
 })->name('dashboard_masyarakat')->middleware('Permission:masyarakat');
 
-Route::get('/profile_masyarakat', function () {
-  return view('Masyarakat.profile_masyarakat');
+Route::controller(DashboardMasyarakatController::class)->group(function() {
+  Route::get('/profile_masyarakat', 'profile');
 });
-
 Route::controller(HistoriController::class)->group(function() {
   Route::get('/histori_pengaduan', 'index');
   Route::get('/ajukan_pengaduan', 'viewForm');
