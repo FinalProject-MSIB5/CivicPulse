@@ -137,11 +137,11 @@
                   Program Studi : Sistem Informasi
                 </p>
                 <div class="social-links mt-3">
-                  <a href="#" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
-                  <a href="#" target="_blank" class="github"><i class="bx bxl-github"></i></a>
-                  <a href="#" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
-                  <a href="#" target="_blank" class="discord"><i class="bx bxl-discord"></i></a>
-                  <a href="#" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                  <a href="https://facebook.com/Ziannaisilaa/" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+                  <a href="https://github.com/Ziannaisilaa/" target="_blank" class="github"><i class="bx bxl-github"></i></a>
+                  <a href="https://instagram.com/ziannaisilaa" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+                  <a href="https://discordapp.com/users/naisilaaaaa/" target="_blank" class="discord"><i class="bx bxl-discord"></i></a>
+                  <a href="https://linkedin.com/in/ziannaisilaa/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                 </div>
               </div>
             </div>
