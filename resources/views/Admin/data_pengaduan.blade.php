@@ -67,7 +67,7 @@
                               <td>{{ $histori->tgl_pengaduan }}</td>
                               <td>{{ $histori->lokasi_pengaduan }}</td>
                               <td align="center">
-                                <img src="assets/img/{{ $histori->foto_pengaduan }}" width="30%" />
+                                <img src="assets/img/pengaduan/{{ $histori->foto_pengaduan }}" width="30%" />
                               </td>
                               <td align="center">
                                 @if($histori->status == "Belum diproses")
@@ -81,9 +81,16 @@
                                 @endif
                                </td>
                               <td align="center">
-                                <a class="btn btn-warning btn-sm" href="{{ route('show_data.show', $histori->id) }}" title="Ubah Data Pengajuan">
-                                    <i class="bi bi-pencil-fill"></i>
-                                </a>
+                                <form method="POST" action="{{ route('delete', $histori->id) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a class="btn btn-warning btn-sm" href="{{ route('show_data.show', $histori->id) }}" title="Ubah Data Pengajuan">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </a>
+                                    <button type="submit" class="btn btn-danger btn-sm show-alert-delete-box" title="Hapus pengajuan">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
                               </td>
                             </tr>
                             @endforeach

@@ -20,13 +20,16 @@
             <div class="card">
               <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
-                  <img src="{{ asset('assets/images/avatars/avatar7.png') }}" alt="Admin" class="rounded-circle" width="150">
+                  @if($profile->foto == null)
+                  <img src="{{ asset('assets/img/profile/profile.png') }}" alt="Masyarakat" class="rounded-circle" width="150">
+                  @endif
+                  @if($profile->foto != null)
+                  <img src="assets/img/profile/{{ $profile->foto}}" alt="Admin" class="rounded-circle" width="150">
+                  @endif
                   <div class="mt-3">
-                    <h4>John Doe</h4>
-                    <p class="text-secondary mb-1">Full Stack Developer</p>
-                    <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
-                    {{-- <button class="btn btn-primary">Follow</button>
-                    <button class="btn btn-outline-primary">Message</button> --}}
+                    <h4>{{ $profile->nama }}</h4>
+                    <p class="text-secondary mb-1">{{ $profile->role }}</p>
+
                   </div>
                 </div>
               </div>

@@ -43,8 +43,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-              <label for="masyarakat_id" class="form-label">Masyarakat_id Sementara</label>
-              <input type="text" class="form-control" id="masyarakat_id" name="masyarakat_id" value="1">
+              <input type="hidden" class="form-control" id="masyarakat_id" name="masyarakat_id" value="{{ $join->id }}">
             </div>
             <div class="mb-3">
               <label for="lokasi_pengaduan" class="form-label">Lokasi Pengaduan</label>

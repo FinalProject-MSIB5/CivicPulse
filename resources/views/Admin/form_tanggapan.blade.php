@@ -21,7 +21,7 @@
             <div class="row">
               <div class="col-md-6">
                 <center>
-                <img src="{{ asset('assets/img/'. $dataPengaduan->foto_pengaduan) }}" alt="foto_pengaduan" width="100%" class="d-flex">
+                <img src="{{ asset('assets/img/pengaduan/'. $dataPengaduan->foto_pengaduan) }}" alt="foto_pengaduan" width="100%" class="d-flex">
                 </center>
               </div>
               <div class="col-md-6">
