@@ -53,9 +53,7 @@ Route::controller(TanggapanController::class)->group(function() {
 });
 
 // MASYARAKAT
-Route::get('/dashboard_masyarakat', function () {
-  return view('Masyarakat.dashboard_masyarakat');
-})->name('dashboard_masyarakat')->middleware('Permission:masyarakat');
+Route::get('/dashboard_masyarakat',[DashboardMasyarakatController::class,'index'])->name('dashboard_masyarakat')->middleware('Permission:masyarakat');
 
 Route::controller(DashboardMasyarakatController::class)->group(function() {
   Route::get('/profile_masyarakat', 'profile');

@@ -27,17 +27,23 @@
                <p>{{ $message }}</p>
            </div>
        @endif
-        <div class="row">
-            <div class="col-2">
-                <h5 class="mt-2 text-uppercase" >Data Pengaduan</h5>
-            </div>
-            <div class="col-10">
-                <a href="{{ url('/excel-export') }}" class="btn btn-success btn-sm" target="_blank" title="Export to Excel">
-                    <i class="bi bi-file-earmark-spreadsheet"></i>
-                </a>
-            </div>
+
+       <div class="row">
+        <div class="col">
+            <h5 class="mt-2 text-uppercase" >Data Pengaduan</h5>
         </div>
-    
+        <div class="col-lg-auto">
+            <a href="{{ url('/excel-export') }}" class="btn btn-success btn-sm" target="_blank" title="Export to Excel">
+                <i class="bi bi-file-earmark-spreadsheet"></i>
+            </a>
+        </div>
+        <div class="col col-lg-1">
+            <a href="" class="btn btn-danger btn-sm" target="_blank" title="Export to PDF">
+                {{-- {{ route('asset.pdf') }} --}}
+                <i class="bi bi-file-earmark-pdf"></i>
+            </a>
+        </div>
+      </div>
         <hr/>
         <div class="card">
             <div class="card-body">
@@ -67,7 +73,7 @@
                               <td>{{ \Carbon\Carbon::parse($histori->tgl_pengaduan)->format('l, d M Y')  }}</td>
                               <td>{{ $histori->lokasi_pengaduan }}</td>
                               <td >
-                                <img src="{{ asset('assets/img/profile/' . $histori->foto_pengaduan) }}" width="30%" />
+                                <img src="{{ asset('assets/img/pengaduan/' . $histori->foto_pengaduan) }}" width="30%" />
                               </td>
                               <td>
                                 @if($histori->status == "Belum diproses")
