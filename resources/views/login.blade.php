@@ -23,7 +23,14 @@
             </ul>
           </div>
         @endif
+          alert login
+        @if(Session::has('alert-success'))
+                <div class="alert alert-success">
+                    {{ Session::get('alert-success') }}
+                </div>
+            @endif
 
+            
         <form action="" method="POST">
           @csrf
             <div class="mb-3">
