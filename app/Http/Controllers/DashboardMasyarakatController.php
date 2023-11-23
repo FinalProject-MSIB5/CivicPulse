@@ -3,15 +3,56 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\masyarakat;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Pengaduan_masyarakat;
 
 class DashboardMasyarakatController extends Controller
 {
     //
+    public function index()
+    {
+        $user = Auth::user();
+        $user_id = $user->id;
+        $ar_label =['Belum diproses','Proses','Selesai'];
+        $ar_pengaduan =DB::table('pengaduan_masyarakat')
+        ->join('masyarakat', 'masyarakat.id', '=', 'pengaduan_masyarakat.masyarakat_id')
+        ->select('pengaduan_masyarakat.*')
+        ->where('masyarakat.user_id', $user_id)
+        ->count();
+        $stt_blm =DB::table('pengaduan_masyarakat')
+        ->join('masyarakat', 'masyarakat.id', '=', 'pengaduan_masyarakat.masyarakat_id')
+        ->select('pengaduan_masyarakat.*')
+        ->where('masyarakat.user_id', $user_id)
+        ->where('pengaduan_masyarakat.status', 'Belum diproses') 
+        ->count();
+        $stt_proses =DB::table('pengaduan_masyarakat')
+        ->join('masyarakat', 'masyarakat.id', '=', 'pengaduan_masyarakat.masyarakat_id')
+        ->select('pengaduan_masyarakat.*')
+        ->where('masyarakat.user_id', $user_id)
+        ->where('pengaduan_masyarakat.status', 'Proses') 
+        ->count();
+        $stt_selesai =DB::table('pengaduan_masyarakat')
+        ->join('masyarakat', 'masyarakat.id', '=', 'pengaduan_masyarakat.masyarakat_id')
+        ->select('pengaduan_masyarakat.*')
+        ->where('masyarakat.user_id', $user_id)
+        ->where('pengaduan_masyarakat.status', 'Selesai') 
+        ->count();
+        $dataTanggapan = DB::table('tanggapan')
+        ->join('pengaduan_masyarakat','pengaduan_masyarakat.id','=','tanggapan.pengaduan_id')
+        ->join('masyarakat', 'masyarakat.id', '=', 'pengaduan_masyarakat.masyarakat_id')  
+        ->select('pengaduan_masyarakat.*')
+        ->where('masyarakat.user_id', $user_id)
+        ->count();
 
+        //  var_dump($stt_blm);
+        //  die;
+        return view('Masyarakat.dashboard_masyarakat', compact('ar_pengaduan','stt_blm','stt_proses','stt_selesai','ar_label','dataTanggapan'));
+
+    }
     public function profile(){
         $user = Auth::user();
         $idlogin = $user->id;
