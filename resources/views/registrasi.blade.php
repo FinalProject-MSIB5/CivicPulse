@@ -13,6 +13,15 @@
     <div class="container py-5">
         <div class="w-50 center border rounded px-3 py-3 mx-auto">
         <h1>Registrasi</h1>
+        @if ($errors->any())
+          <div class="alert alert-danger">
+            <ul>
+              @foreach ($errors->all() as $item)
+              <li>{{ $item }}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
 
         <form action="/registrasi/post" method="POST" enctype="multipart/form-data">
           @csrf
