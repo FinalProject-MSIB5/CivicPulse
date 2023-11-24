@@ -1,5 +1,6 @@
 @extends('layout_masyarakat.index')
 @section('content')
+@include('sweetalert::alert')
 
 <div class="page-wrapper">
     <div class="page-content">

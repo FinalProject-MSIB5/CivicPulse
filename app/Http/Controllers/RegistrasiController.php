@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class RegistrasiController extends Controller
 {
@@ -73,6 +74,7 @@ class RegistrasiController extends Controller
       ]);
 
     auth()->login($user);
+    Session::flash('alert-success', 'Registrasi berhasil! Silakan login.');
     return redirect()->to('/login');
   }
 }
