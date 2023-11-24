@@ -32,6 +32,7 @@ class SesiController extends Controller
 
     if (Auth::attempt($infologin)) {
       if (Auth::user()->role == 'admin'){
+        Alert::success('Login Berhasil!', 'Selamat datang, ');
         return redirect()->route('dashboard_admin');
       }
       elseif (Auth::user()->role == 'masyarakat'){
