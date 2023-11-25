@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class SesiController extends Controller
 {
@@ -30,9 +32,11 @@ class SesiController extends Controller
 
     if (Auth::attempt($infologin)) {
       if (Auth::user()->role == 'admin'){
+        Alert::success('Login Berhasil!', 'Selamat datang, ');
         return redirect()->route('dashboard_admin');
       }
       elseif (Auth::user()->role == 'masyarakat'){
+        Alert::success('Login Berhasil!', 'Selamat datang, ');
         return redirect()->route('dashboard_masyarakat');
       }
     } else {
@@ -42,6 +46,7 @@ class SesiController extends Controller
 
   function logout() {
     auth::logout();
+    
     return redirect('');
   }
 }

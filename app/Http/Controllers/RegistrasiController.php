@@ -8,6 +8,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RegistrasiController extends Controller
 {
@@ -73,6 +75,8 @@ class RegistrasiController extends Controller
       ]);
 
     auth()->login($user);
+    alert('Regitrasi Berhasil','Selamat Datang', 'success');
     return redirect()->to('/login');
+    
   }
 }

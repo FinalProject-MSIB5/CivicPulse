@@ -37,6 +37,8 @@
 </head>
 
 <body>
+	@include('sweetalert::alert')
+
 	<!--wrapper-->
 	<div class="wrapper">
 	@include('sweetalert::alert')

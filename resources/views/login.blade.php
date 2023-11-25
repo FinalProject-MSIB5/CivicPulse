@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +8,12 @@
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <link rel="icon" href="{{ asset('assets/images/logo-icon.png')}}" type="image/png" />  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
 <title>Login</title>
 </head>
 <body>
+  @include('sweetalert::alert')
+  
     <div class="container py-5">
       <div class="w-50 center border rounded px-3 py-3 mx-auto">
         <h1>Login</h1>
@@ -23,7 +27,26 @@
             </ul>
           </div>
         @endif
+          
+        {{-- @if(Session::has('alert-success'))
+                <div class="alert alert-success">
+                    {{ Session::get('alert-success') }}
+                </div>
+            @endif --}}
 
+        @if(Session::has('alert-success'))
+            < <script>
+              Swal.fire({
+                  title: 'Success!',
+                  text: '{{ session('alert-success') }}',
+                  icon: 'success',
+                  confirmButtonColor: '#3085d6',
+                  confirmButtonText: 'OK'
+              });
+          </script>
+        @endif
+
+            
         <form action="" method="POST">
           @csrf
             <div class="mb-3">
@@ -43,5 +66,6 @@
         </form>
       </div> 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 </html>

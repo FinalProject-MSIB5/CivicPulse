@@ -10,9 +10,34 @@
 <title>Registrasi</title>
 </head>
 <body>
+    @include('sweetalert::alert')
     <div class="container py-5">
         <div class="w-50 center border rounded px-3 py-3 mx-auto">
         <h1>Registrasi</h1>
+        
+        @if(Session::has('alert-success'))
+        <div class="alert alert-success">
+            <script>
+                Swal.fire({
+                    title: 'Success!',
+                    text: '{{ session('alert-success') }}',
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'OK'
+                });
+            </script>
+        </div>
+        @endif
+        @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach ($errors->all() as $item)
+            <li>{{ $item }}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
+
 
         <form action="/registrasi/post" method="POST" enctype="multipart/form-data">
           @csrf
