@@ -75,8 +75,17 @@ class TanggapanController extends Controller
         // die;
         return redirect('/data_pengaduan')->with('success','Status Pengaduan Berhasil Diubah');
     }
+    public function destroy(string $id)
+    {
+        //sebelum hapus data, hapus terlebih dahulu fisik file fotonya jika ada
+        $row = Pengaduan_masyarakat::find($id);
+        if(!empty($row->foto_pengaduan)) unlink('assets/img/pengaduan/'.$row->foto_pengaduan);
+        //hapus datanya dari tabel
+        Pengaduan_masyarakat::where('id',$id)->delete();
+        return redirect()->route('Admin.data_pengaduan')->with('success','Data Asset Berhasil Dihapus');
+    }
 
-    public function delete($id)
+  public function delete($id)
     {
         //sebelum hapus data, hapus terlebih dahulu fisik file fotonya jika ada
         $row = Pengaduan_masyarakat::find($id);

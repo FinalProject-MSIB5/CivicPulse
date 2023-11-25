@@ -41,6 +41,7 @@
 
 	<!--wrapper-->
 	<div class="wrapper">
+	@include('sweetalert::alert')
     @include('layout_masyarakat.sidebar')
     @include('layout_masyarakat.navbar')
 
