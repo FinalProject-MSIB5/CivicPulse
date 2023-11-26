@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
- 
+
   use App\Models\User;
   use Illuminate\Http\Request;
   use App\Models\Histori;
@@ -86,7 +86,7 @@ use Illuminate\Support\Facades\Auth;
                  'foto_pengaduan'=>$fileName,
                  'status'=>'Belum diproses',
             ]);
-        return redirect('/histori_pengaduan')->with('success','Data Pengajuan Pengaduan Berhasil Disimpan');
+        return redirect('/histori_pengaduan')->with('success','Data Pengajuan Berhasil Disimpan');
     }
 
   public function show(string $id)
