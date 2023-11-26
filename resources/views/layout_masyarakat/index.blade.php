@@ -33,7 +33,7 @@
 	<!-- Theme Style CSS -->
 	<link rel="stylesheet" href="{{ asset('assets/css/semi-dark.css') }}" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-	<title>Pengaduan Masyarakat</title>
+	<title>Civic Pulse</title>
 </head>
 
 <body>
