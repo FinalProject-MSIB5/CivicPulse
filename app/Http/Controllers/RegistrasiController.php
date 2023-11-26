@@ -15,8 +15,8 @@ class RegistrasiController extends Controller
 {
   function Registrasi()
   {
-    $arr_gender = ['laki-laki','perempuan'];
-    return view('registrasi', compact('arr_gender'));
+    $arr_gender = ['Laki-Laki','Perempuan'];
+    return view('login-register/daftar', compact('arr_gender'));
   }
 
   function createRegistrasi(Request $request)
@@ -76,7 +76,7 @@ class RegistrasiController extends Controller
 
     auth()->login($user);
     alert('Regitrasi Berhasil','Selamat Datang', 'success');
-    return redirect()->to('/login');
+    return redirect()->to('/signin');
     
   }
 }
