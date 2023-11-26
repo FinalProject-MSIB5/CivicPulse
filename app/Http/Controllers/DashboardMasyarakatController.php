@@ -62,7 +62,7 @@ class DashboardMasyarakatController extends Controller
         'masyarakat.alamat','masyarakat.gender','masyarakat.foto')
         ->where('users.id', $idlogin)
         ->first();
-        $arr_gender = ['laki-laki','perempuan'];
+        $arr_gender = ['Laki-Laki','Perempuan'];
         return view('Masyarakat.profile_masyarakat', compact('profile','arr_gender'));
     }
 
