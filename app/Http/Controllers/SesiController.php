@@ -11,7 +11,7 @@ class SesiController extends Controller
 {
   function index()
   {
-    return view('login');
+    return view('login-register.signin');
   }
 
   function login(Request $request){
@@ -32,15 +32,15 @@ class SesiController extends Controller
 
     if (Auth::attempt($infologin)) {
       if (Auth::user()->role == 'admin'){
-        Alert::success('Login Berhasil!', 'Selamat datang, ');
+        Alert::success('Login Berhasil!', 'Selamat datang ');
         return redirect()->route('dashboard_admin');
       }
       elseif (Auth::user()->role == 'masyarakat'){
-        Alert::success('Login Berhasil!', 'Selamat datang, ');
+        Alert::success('Login Berhasil!', 'Selamat datang ');
         return redirect()->route('dashboard_masyarakat');
       }
     } else {
-      return redirect('/login')->withErrors('Username dan Password yang dimasukkan tidak sesuai');
+      return redirect('/signin')->withErrors('Username atau Password yang dimasukkan tidak sesuai');
     }
   }
 
