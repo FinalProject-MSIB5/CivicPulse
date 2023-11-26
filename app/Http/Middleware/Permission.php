@@ -22,6 +22,6 @@ class Permission
     elseif ($role == 'masyarakat' && Auth::check() && Auth::user()->role == 'masyarakat'){
       return $next($request);
     }
-    return redirect('/login');
+    return redirect('/signin');
   }
 }
