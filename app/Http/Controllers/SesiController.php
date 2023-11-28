@@ -46,7 +46,7 @@ class SesiController extends Controller
 
   function logout() {
     auth::logout();
-    
+    Alert::success('Anda telah logout');
     return redirect('');
   }
 }
