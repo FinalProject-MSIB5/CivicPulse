@@ -38,8 +38,8 @@
             </a>
         </div>
         <div class="col col-lg-1">
-            <a href="" class="btn btn-danger btn-sm" target="_blank" title="Export to PDF">
-                {{-- {{ route('asset.pdf') }} --}}
+            <a href="{{ route('pengaduan.pdf') }}" class="btn btn-danger btn-sm" target="_blank" title="Export to PDF">
+              
                 <i class="bi bi-file-earmark-pdf"></i>
             </a>
         </div>

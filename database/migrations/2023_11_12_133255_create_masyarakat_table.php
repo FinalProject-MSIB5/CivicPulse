@@ -16,7 +16,7 @@ return new class extends Migration
           $table->string('nik', 16)->unique();
           $table->string('no_telepon', 15);
           $table->text('alamat');
-          $table->enum('gender', ['laki-laki', 'perempuan']);
+          $table->enum('gender', ['Laki-Laki', 'Perempuan']);
           $table->string('foto', 45)->nullable();
           $table->timestamps();
         });

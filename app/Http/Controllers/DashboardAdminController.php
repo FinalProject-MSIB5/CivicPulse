@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Masyarakat;
 use Illuminate\Http\Request;
+use PDF;
 // use Maatwebsite\Excel\Excel;
 use App\Exports\PengaduanExport;
 use Illuminate\Support\Facades\DB;
@@ -46,4 +47,10 @@ class DashboardAdminController extends Controller
     {
         return Excel::download(new PengaduanExport,'Pengaduan.xlsx');
     }
+//     public function pengaduanPDF(){
+//     $dataPengaduan = Pengaduan_masyarakat::all();
+//     $pdf = PDF::loadView('Admin.pengaduanPDF', 
+//                           ['dataPengaduan'=>$dataPengaduan]);
+//     return $pdf->download('data_pengaduanpdf_'.date('d-m-Y_H:i:s').'.pdf');
+// }
 }

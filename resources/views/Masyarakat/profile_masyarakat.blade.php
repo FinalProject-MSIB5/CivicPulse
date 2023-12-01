@@ -3,8 +3,7 @@
 
 <div class="page-wrapper">
   <div class="page-content">
-  <div class="main-body">
-  
+    <div class="main-body">
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="main-breadcrumb">
           <ol class="breadcrumb">
@@ -38,7 +37,6 @@
             <div class="card mb-3">
               <div class="card-body">
                 <form method="POST" action="{{ url('/update_profile',$profile->id) }}" enctype="multipart/form-data">
-                  {{-- {{ url('update_profile',$dataPengaduan->id) }} --}}
                   @csrf
                   @method('PUT') 
                   <h4>Data Profile</h4>
@@ -59,7 +57,9 @@
                       <label for="nik" class="form-label">NIK</label>
                       <input type="text" class="form-control" name="nik" value="{{ $profile->nik}}" placeholder="Masukkan NIK">
                     </div>
-                    <div class="col-md-12 mt-3">
+
+                    {{-- EDIT GENDER YANG LAMA (MASIH RADIO BUTTON) --}}
+                    {{-- <div class="col-md-12 mt-3">
                     <label for="gender" class="form-label">Jenin Kelamin</label> <br>
                         @foreach($arr_gender as $jk )
                         @php 
@@ -70,7 +70,20 @@
                             <label class="form-check-label" for="gender">{{ $jk }}</label>
                         </div>
                         @endforeach
+                    </div> --}}
+                    
+                    <div class="col-md-12 mt-3">
+                      <label for="gender" class="form-label">Jenis Kelamin</label>
+                        <select class="form-control" name="gender" id="gender" >
+                          @foreach($arr_gender as $jk )
+                          @php 
+                            $cek = ($jk == $profile->gender) ? 'checked' : ''; 
+                          @endphp
+                            <option value="{{ $jk }}" {{ $cek }}>{{ $jk }}</option>
+                            @endforeach
+                        </select>
                     </div>
+
                     <div class="col-md-12 mt-3">
                       <label for="alamat" class="form-label">Alamat</label>
                       <textarea class="form-control" id="alamat" name="alamat" cols="50" rows="5">{{ $profile->alamat }}</textarea>
@@ -79,7 +92,6 @@
                       <label for="foto" class="form-label">Foto</label>
                       <input type="file" class="form-control"  name="foto" />
                     </div>
-
                     <div class="text-center">
                       <button type="submit" class="btn btn-primary  mt-4">Ubah</button>
                       <a href="{{url('/data_pengaduan')}}" class="btn btn-secondary mt-4">Batal</a>
@@ -89,7 +101,7 @@
             </div>
           </div>
         </div>
-  </div>
       </div>
+    </div>
   </div>
- @endsection
+@endsection
