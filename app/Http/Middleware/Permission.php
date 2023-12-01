@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Permission
 {
@@ -22,6 +23,8 @@ class Permission
     elseif ($role == 'masyarakat' && Auth::check() && Auth::user()->role == 'masyarakat'){
       return $next($request);
     }
+    Alert::warning('Maaf anda tidak memiliki akses! <br>',
+                    'Silahkan Login terlebih dahulu.');
     return redirect('/signin');
   }
 }
