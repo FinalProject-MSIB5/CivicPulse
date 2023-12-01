@@ -37,6 +37,7 @@
 </head>
 
 <body>
+  @include('sweetalert::alert')
   @include('Landingpage.header')
   <main id="main">
     @yield('content')  
