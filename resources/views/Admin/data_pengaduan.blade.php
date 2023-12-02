@@ -34,13 +34,12 @@
         </div>
         <div class="col-lg-auto">
             <a href="{{ url('/excel-export') }}" class="btn btn-success btn-sm" target="_blank" title="Export to Excel">
-                <i class="bi bi-file-earmark-spreadsheet"></i>
+                <i class="bi bi-file-earmark-spreadsheet"></i> Excel
             </a>
         </div>
         <div class="col col-lg-1">
-            <a href="{{ route('pengaduan.pdf') }}" class="btn btn-danger btn-sm" target="_blank" title="Export to PDF">
-              
-                <i class="bi bi-file-earmark-pdf"></i>
+            <a href="{{ route('pengaduan-pdf') }}" class="btn btn-danger btn-sm" target="_blank" title="Export to PDF">
+                <i class="bi bi-file-earmark-pdf"></i> PDF
             </a>
         </div>
       </div>

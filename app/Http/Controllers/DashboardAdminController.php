@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use Carbon\Carbon;
 use App\Models\Masyarakat;
 use Illuminate\Http\Request;
-use PDF;
 // use Maatwebsite\Excel\Excel;
 use App\Exports\PengaduanExport;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
 use App\Models\Pengaduan_masyarakat;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -47,6 +48,18 @@ class DashboardAdminController extends Controller
     {
         return Excel::download(new PengaduanExport,'Pengaduan.xlsx');
     }
+
+    public function PengaduanPDF(){
+        $dataPengaduan = DB::table('pengaduan_masyarakat')
+        ->join('masyarakat', 'masyarakat.id', '=', 'pengaduan_masyarakat.masyarakat_id')
+        ->join('users', 'users.id', '=', 'masyarakat.user_id')
+        ->select('users.nama', 'masyarakat.user_id', 'pengaduan_masyarakat.*')
+        ->get();
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML(view('Admin.GeneratePDF',compact('dataPengaduan')));
+        return $pdf->stream('Pengaduan.pdf');
+    }
+
 //     public function pengaduanPDF(){
 //     $dataPengaduan = Pengaduan_masyarakat::all();
 //     $pdf = PDF::loadView('Admin.pengaduanPDF', 

@@ -46,7 +46,7 @@ Route::post('/daftar/post', [RegistrasiController::class, 'createRegistrasi'])->
 // ADMIN
 Route::get('/dashboard_admin',[DashboardAdminController::class,'index'])->name('dashboard_admin')->middleware('Permission:admin');
 Route::get('/excel-export',[DashboardAdminController::class,'export'])->name('excel-export');
-Route::get('/pengaduan-pdf', [DashboardAdminController::class, 'pengaduanPDF'])->name('pengaduan.pdf')->middleware('auth');
+Route::get('/pengaduan-pdf', [DashboardAdminController::class, 'PengaduanPDF'])->name('pengaduan-pdf')->middleware('auth');
 
 Route::controller(TanggapanController::class)->group(function() {
   Route::get('/data_pengaduan', 'index');
