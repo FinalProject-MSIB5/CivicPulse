@@ -77,7 +77,7 @@
                         <select class="form-control" name="gender" id="gender" >
                           @foreach($arr_gender as $jk )
                           @php 
-                            $cek = ($jk == $profile->gender) ? 'checked' : ''; 
+                            $cek = ($jk == $profile->gender) ? 'selected' : ''; 
                           @endphp
                             <option value="{{ $jk }}" {{ $cek }}>{{ $jk }}</option>
                             @endforeach
