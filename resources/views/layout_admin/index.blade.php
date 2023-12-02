@@ -40,8 +40,8 @@
 	<!--wrapper-->
 	<div class="wrapper">
 		@include('sweetalert::alert')
-		 @include('layout_admin.sidebar')
-		 @include('layout_admin.navbar')
+		@include('layout_admin.sidebar')
+		@include('layout_admin.navbar')
 
 		@yield('content')
 		<!--start overlay-->
@@ -75,52 +75,8 @@
 	<!--app JS-->
 	<script src="{{ asset('assets/js/app.js')}}"></script>
 
-	{{-- CKEditor --}}
-	
-	 <!-- SweetAlert2 -->
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
- 
- 
-	 <script type="text/javascript">
-		 $('.show-alert-delete-box').click(function(event) {
- 
-			 var form = $(this).closest("form");
- 
-			 var name = $(this).data("name");
- 
-			 event.preventDefault();
- 
-			 swal({
- 
-				 title: "Anda yakin data ini dihapus??",
- 
-				 text: "Jika Anda menghapus ini, data akan hilang selamanya.",
- 
-				 icon: "warning",
- 
-				 type: "warning",
- 
-				 buttons: ["Batal", "Hapus!"],
- 
-				 confirmButtonColor: '#3085d6',
- 
-				 cancelButtonColor: '#d33',
- 
-				 confirmButtonText: 'Ya, Hapus!'
- 
-			 }).then((willDelete) => {
- 
-				 if (willDelete) {
- 
-					 form.submit();
- 
-				 }
- 
-			 });
- 
-		 });
-	 </script>
-</body>
+	<!-- SweetAlert2 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+</body>
 </html>
