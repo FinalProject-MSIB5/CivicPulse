@@ -21,14 +21,14 @@
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
-       @endif
-       @if($message = Session::get('error'))
-           <div class="alert alert-danger">
-               <p>{{ $message }}</p>
-           </div>
-       @endif
+      @endif
+      @if($message = Session::get('error'))
+          <div class="alert alert-danger">
+              <p>{{ $message }}</p>
+          </div>
+      @endif
 
-       <div class="row">
+      <div class="row">
         <div class="col">
             <h5 class="mt-2 text-uppercase" >Data Pengaduan</h5>
         </div>
@@ -85,7 +85,7 @@
                                 @if($histori->status == "Selesai")
                                 <span class="badge rounded-pill bg-success"> {{ $histori->status }}</span>
                                 @endif
-                               </td>
+                              </td>
                               <td align="center">
                                 <form method="POST" action="{{ route('delete', $histori->id) }}">
                                     @csrf
@@ -109,5 +109,43 @@
         </div>
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+<script type="text/javascript">
+  $('.show-alert-delete-box').click(function (event) {
+    var form = $(this).closest("form");
+    event.preventDefault();
+    swal({
+      title: "Anda yakin data ini dihapus??",
+      text: "Jika Anda menghapus , data akan hilang selamanya.",
+      icon: "warning",
+      type: "warning",
+      buttons: ["Batal", "Hapus!"],
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ya, Hapus!'
+    }).then((willDelete) => {
+      if (willDelete) {
+        $.ajax({
+          type: form.attr('method'),
+          url: form.attr('action'),
+          data: form.serialize(),
+          success: function (response) {
+            swal({
+              title: 'Berhasil!',
+              text: 'Data berhasil dihapus.',
+              icon: 'success'
+            }).then(() => {
+              location.reload();
+            });
+          },
+          error: function (error) {
+            console.log('Error:', error);
+          }
+        });
+      }
+    });
+  });
+</script>
 
 @endsection
