@@ -15,7 +15,6 @@ class Pengaduan_masyarakat extends Model
     protected $table = 'pengaduan_masyarakat';
     protected $fillable = ['masyarakat_id','nama_pengaduan','tgl_pengaduan','deskripsi','lokasi_pengaduan',
                            'status'];
-    public $timestamps = false;
     public function tanggapan(): HasOne
     {
         return $this->hasOne(Tanggapan::class);

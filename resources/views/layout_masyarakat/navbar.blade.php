@@ -17,10 +17,10 @@ $join =DB::table('masyarakat')
             </div>
             <div class="top-menu ms-auto">
             </div>
+            <a href="{{ url('/profile_masyarakat') }}" style="text-decoration: none">
             <div class="user-box dropdown">
-
                     @if($join->foto == null)
-                    <img src="{{ asset('assets/img/profile/profile.png') }}" class="user-img" alt="user avatar">
+                    <img src="{{ asset('assets/img/profile/profile.jpg') }}" class="user-img" alt="user avatar">
                     @endif
                     @if($join->foto != null)
                     <img src="{{ asset('assets/img/profile/' . $join->foto) }}" class="user-img" alt="user avatar">
@@ -30,7 +30,8 @@ $join =DB::table('masyarakat')
                         <p class="user-name mb-0">{{ $join->nama_masyarakat }}</p>
                         <p class="designattion mb-0">Masyarakat</p>
                     </div>
-            </div>
+                </div>
+            </a>
         </nav>
     </div>
 </header>

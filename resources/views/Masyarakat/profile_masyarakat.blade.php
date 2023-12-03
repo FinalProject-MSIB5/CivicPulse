@@ -20,7 +20,7 @@
               <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
                   @if($profile->foto == null)
-                  <img src="{{ asset('assets/img/profile/profile.png') }}" alt="Masyarakat" class="rounded-circle" width="150">
+                  <img src="{{ asset('assets/img/profile/profile.jpg') }}" alt="Masyarakat" class="rounded-circle" width="150">
                   @endif
                   @if($profile->foto != null)
                   <img src="{{ asset('assets/img/profile/' .$profile->foto )}}" alt="Admin" class="rounded-circle" width="150">

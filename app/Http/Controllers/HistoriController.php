@@ -105,6 +105,7 @@ use Illuminate\Support\Facades\Auth;
       ->join('users', 'users.id', '=', 'masyarakat.user_id')
       ->select('users.nama', 'masyarakat.id','pengaduan_masyarakat.*','tanggapan.tgl_tanggapan','tanggapan.keterangan')
       ->where('pengaduan_masyarakat.id', $id)
+      ->orderBy('tanggapan.tgl_tanggapan', 'desc')
       ->first();
     
       return view('Masyarakat.detail_pengaduan',compact('historiPengaduan','dataPengaduan','dataTanggapan'));
