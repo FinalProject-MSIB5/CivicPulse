@@ -17,8 +17,13 @@
             </div>
         </div>
         <!--end breadcrumb-->
-        <h6 class="mb-0 text-uppercase">Data Masyarakat</h6>
-        <hr/>
+
+      <div class="row">
+        <div class="col">
+            <h5 class="mt-2 text-uppercase" >Data User</h5>
+        </div>
+  </div>
+  <hr/>
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
