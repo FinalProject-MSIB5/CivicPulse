@@ -36,8 +36,7 @@
 	<title>Civic Pulse</title>
 </head>
 
-<body>
-	<!--wrapper-->
+<body>	<!--wrapper-->
 	<div class="wrapper">
 		@include('sweetalert::alert')
 		@include('layout_admin.sidebar')
@@ -75,8 +74,9 @@
 	<!--app JS-->
 	<script src="{{ asset('assets/js/app.js')}}"></script>
 
-	<!-- SweetAlert2 -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	{{-- CKEditor --}}
+	
+</body>
 
 </body>
 </html>
