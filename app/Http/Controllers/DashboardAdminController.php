@@ -11,13 +11,20 @@ use App\Exports\PengaduanExport;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use App\Models\Pengaduan_masyarakat;
+use Illuminate\Support\Facades\View;
 use Maatwebsite\Excel\Facades\Excel;
 
 class DashboardAdminController extends Controller
 {
     public function index()
     {
-        $ar_user = Masyarakat::count();
+       
+        $ar_user =DB::table('masyarakat')
+        ->join('users', 'users.id', '=', 'masyarakat.user_id')
+        ->select('masyarakat.*','users.nama','users.role')
+        ->where('users.role', 'masyarakat')
+        ->count();
+    
         $ar_pengaduan = Pengaduan_masyarakat::count();
         $ar_label =['Belum diproses','Proses','Selesai'];
 
@@ -60,10 +67,17 @@ class DashboardAdminController extends Controller
         return $pdf->stream('Pengaduan.pdf');
     }
 
-//     public function pengaduanPDF(){
-//     $dataPengaduan = Pengaduan_masyarakat::all();
-//     $pdf = PDF::loadView('Admin.pengaduanPDF', 
-//                           ['dataPengaduan'=>$dataPengaduan]);
-//     return $pdf->download('data_pengaduanpdf_'.date('d-m-Y_H:i:s').'.pdf');
-// }
+// fungsi notifikasi
+    // public function Notifikasi()
+    // {
+    //     $dataPengaduan = DB::table('pengaduan_masyarakat')
+    //     ->join('masyarakat', 'masyarakat.id', '=', 'pengaduan_masyarakat.masyarakat_id')
+    //     ->join('users', 'users.id', '=', 'masyarakat.user_id')
+    //     ->select('users.nama', 'masyarakat.foto', 'pengaduan_masyarakat.nama_pengaduan','pengaduan_masyarakat.status', 'pengaduan_masyarakat.foto_pengaduan')
+    //     ->where('pengaduan_masyarakat.status', 'Belum diproses')
+    //     ->get();
+    //     View::share('dataPengaduan', $dataPengaduan);
+    //      return view('layout_admin.navbar');
+    //     // return view('layout_admin.navbar', compact('dataPengaduan'));
+    // }
 }
