@@ -9,6 +9,7 @@ use App\Http\Controllers\TanggapanController;
 use App\Http\Controllers\RegistrasiController;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardMasyarakatController;
+use App\Http\Controllers\TeamProject;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -22,10 +23,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/', function () {
-  return view('Landingpage.home');
-});
-
+Route::get('/',[TeamProject::class,'index']);
 
 // LOGIN
 Route::get('/signin', [SesiController::class, 'index'])->name('signin');
