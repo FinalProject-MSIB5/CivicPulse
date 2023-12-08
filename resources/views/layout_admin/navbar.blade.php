@@ -30,11 +30,51 @@ $join =DB::table('masyarakat')
           <div class="top-menu ms-auto">
             <ul class="navbar-nav align-items-center">
               <li class="nav-item dropdown dropdown-large">
-                <a class="nav-link  position-relative"   data-bs-toggle="modal" data-bs-target="#exampleModal">   
-                   @if( $jmlNotif != null)<span class="alert-count">{{ $jmlNotif }}</span>@endif
-                  <i class='bx bx-bell'></i> 
-                </a>
-              </li>
+								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 
+                  @if( $jmlNotif != null)<span class="alert-count">{{ $jmlNotif }}</span>@endif
+									<i class='bx bx-bell'></i>
+								</a>
+								<div class="dropdown-menu dropdown-menu-end">
+									<a href="javascript:;">
+										<div class="msg-header">
+											<p class="msg-header-title">Notifications</p>
+										</div>
+									</a>
+									<div class="header-notifications-list">
+                    @foreach($dataPengaduan as $data)
+                        <a class="dropdown-item" href="{{ url('/data_pengaduan') }}">
+                          <div class="d-flex align-items-center">
+                            <div class="notify bg-light-primary text-primary">
+                              @if($data->foto == null)
+                              <img src="{{ asset('assets/img/profile/profile.jpg') }}" alt="Masyarakat" class="rounded-circle" width="50">
+                              @endif
+                              @if($data->foto != null)
+                              <img src="{{ asset('assets/img/profile/' .$data->foto )}}" alt="masyarakat" class="rounded-circle" width="50">
+                              @endif
+                            </div>
+                            <div class="flex-grow-1">
+                              <h6 class="msg-name"> {{ $data->nama}}
+                                <span class="float-end badge rounded-pill bg-danger" color="white">
+                                   {{ $data->status }}
+                                </span>
+                              </h6>
+                              @php
+                              $awal  = date_create($data->tgl_pengaduan);
+                              $akhir = date_create(); // waktu sekarang
+                              $diff  = date_diff( $awal, $akhir );
+                              @endphp
+                              @if($diff->days == 0)
+                                <p class="msg-info">Hari ini</p>
+                              @elseif($diff->days > 0)
+                                <p class="msg-info"> {{ $diff->days }} hari yang lalu </p>
+                              @endif
+                            </div>
+                          </div>
+                        </a>
+                    @endforeach
+									</div>
+								</div>
+							</li>
             </ul>
           </div>
             {{-- @foreach ($data_user as $user) --}}
