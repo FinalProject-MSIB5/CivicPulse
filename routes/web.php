@@ -22,6 +22,8 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// ROUTE API
+Route::get('/api-dataPengaduan', [HistoriController::class, 'apiDataPengaduan']);
 
 Route::get('/',[TeamProject::class,'index']);
 

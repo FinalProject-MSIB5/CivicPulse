@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\DataPengaduanController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// API Data Pengaduan
+Route::get('/Data-Pengaduan', [DataPengaduanController::class, 'index']);
+Route::get('/Data-Pengaduan/{id}', [DataPengaduanController::class, 'show']);
+Route::delete('/Data-Pengaduan/{id}', [DataPengaduanController::class, 'destroy']);
+Route::put('/Data-Pengaduan/{id}', [DataPengaduanController::class, 'update']);
+Route::post('/Data-Pengaduan', [DataPengaduanController::class, 'create']);
