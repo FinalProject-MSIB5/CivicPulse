@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SesiController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HistoriController;
 use App\Http\Controllers\TanggapanController;
@@ -10,7 +9,6 @@ use App\Http\Controllers\RegistrasiController;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardMasyarakatController;
 use App\Http\Controllers\TeamProject;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +20,17 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// ROUTE API
+
+
+// API Lokal (data user)
+Route::get('/api-dataUser', [RegistrasiController::class, 'apiDataUser']);
+Route::get('/api-dataUserId/{id}', [RegistrasiController::class, 'apiDataUserId']);
+
+// API Lokal (data pengaduan)
 Route::get('/api-dataPengaduan', [HistoriController::class, 'apiDataPengaduan']);
 
+
+// INDEX
 Route::get('/',[TeamProject::class,'index']);
 
 // LOGIN
