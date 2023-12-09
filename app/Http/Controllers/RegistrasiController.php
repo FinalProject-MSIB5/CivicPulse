@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Masyarakat;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Session;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class RegistrasiController extends Controller
 {
@@ -65,6 +62,7 @@ class RegistrasiController extends Controller
     else{
         $fileName = '';
     }
+
     DB::table('masyarakat')->insert([
         'user_id' => $user->id,
         'nik'=>$request->nik,
@@ -77,6 +75,40 @@ class RegistrasiController extends Controller
     auth()->login($user);
     alert('Regitrasi Berhasil','Selamat Datang', 'success');
     return redirect()->to('/signin');
-    
+  }
+
+  // API Data User (Lokal)
+  function apiDataUser()
+  {
+    $users = User::all();
+    return response()->json(
+      [
+        'success'=>true,
+        'message'=>'Semua Data User',
+        'data'=>$users
+      ],200
+    );
+  }
+
+  function apiDataUserId($id)
+  {
+    $user = User::find($id);
+    if ($user) {
+      return response()->json(
+        [
+          'success'=>true,
+          'message'=>'Data User by id berhasil ditemukan',
+          'data'=>$user
+        ],200
+      );
+    } else {
+      return response()->json(
+        [
+          'success'=>false,
+          'message'=>'Data User tidak ditemukan',
+          'data'=>$user
+        ],404
+      );
+    }
   }
 }
