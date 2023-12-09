@@ -57,7 +57,6 @@ Route::controller(TanggapanController::class)->group(function() {
 
 // MASYARAKAT
 Route::get('/dashboard_masyarakat',[DashboardMasyarakatController::class,'index'])->name('dashboard_masyarakat')->middleware('Permission:masyarakat');
-
 Route::controller(DashboardMasyarakatController::class)->group(function() {
   Route::get('/profile_masyarakat', 'profile');
   Route::put('/update_profile/{id}','update')->name('update_profile');
@@ -68,3 +67,6 @@ Route::controller(HistoriController::class)->group(function() {
   Route::post('/store', 'store')->name('store');
   Route::get('/detail_pengaduan/{id}','show')->name('histori.show');
 });
+// Rest API MASYARAKAT
+Route::get('/api-masyarakat',[DashboardMasyarakatController::class,'apiMasyarakat']);
+Route::get('/api-masyarakat/{id}',[DashboardMasyarakatController::class,'apiMasyarakatDetail']);
