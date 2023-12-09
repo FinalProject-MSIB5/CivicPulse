@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\DataPengaduanController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\DataPengaduanController;
+use App\Http\Controllers\Api\DataUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+  return $request->user();
 });
+
+// API Data User
+Route::get('/dataUser', [DataUserController::class, 'index']);
+Route::get('/dataUserId/{id}', [DataUserController::class, 'show']);
 
 // API Data Pengaduan
 Route::get('/Data-Pengaduan', [DataPengaduanController::class, 'index']);
