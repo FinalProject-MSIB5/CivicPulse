@@ -103,4 +103,34 @@ class DashboardMasyarakatController extends Controller
         return redirect('/histori_pengaduan')->with('success','Data Profile Berhasil Diubah');
         
     }
-}
+    public function apiMasyarakat(){
+        $masyarakat = Masyarakat::all();
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'Data masyarakat berhasil di ambil',
+                'data' => $masyarakat
+
+            ], 200);
+        }
+        public function apiMasyarakatDetail($id){
+            $masyarakat = Masyarakat::find($id);
+            if($masyarakat){
+                return response()->json(
+                    [
+                        'success' => true,
+                        'message' => 'Data Detail masyarakat berhasil tampil',
+                        'data' => $masyarakat
+                    
+                ], 200);
+            }
+            else{
+                return response()->json(
+                    [
+                        'success' => false,
+                        'message' => 'Data Detail masyarakat tidak ditemukan',
+                        'data' => $masyarakat
+                    ],404);
+            }
+        }
+    }
