@@ -23,6 +23,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // API Data User
 Route::get('/dataUser', [DataUserController::class, 'index']);
 Route::get('/dataUserId/{id}', [DataUserController::class, 'show']);
+Route::post('/user-sigin', [DataUserController::class, 'create']);
+Route::put('/user-update', [DataUserController::class, 'update']);
+
 
 // API Data Pengaduan
 Route::get('/Data-Pengaduan', [DataPengaduanController::class, 'index']);
