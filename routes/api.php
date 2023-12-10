@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Api\DashboardMasyarakatController;
 use App\Http\Controllers\Api\DataPengaduanController;
 use App\Http\Controllers\Api\DataUserController;
@@ -22,6 +22,23 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
   return $request->user();
 });
 
+// Authentication Token API
+Route::post("/register", [AuthController::class, "register"]);
+Route::post("/login", [AuthController::class, "login"]);
+
+// API Data User
+Route::get('/dataUser', [DataUserController::class, 'index']);
+Route::get('/dataUserId/{id}', [DataUserController::class, 'show']);
+Route::post('/createDataUser', [DataUserController::class, 'create']);
+Route::post('/updateDataUser/{id}', [DataUserController::class, 'update']);
+
+// API Data Pengaduan
+Route::get('/Data-Pengaduan', [DataPengaduanController::class, 'index']);
+Route::get('/Data-Pengaduan/{id}', [DataPengaduanController::class, 'show']);
+Route::delete('/Data-Pengaduan/{id}', [DataPengaduanController::class, 'destroy']);
+Route::post('/Data-Pengaduan', [DataPengaduanController::class, 'create']);
+Route::put('/Data-Pengaduan/{id}', [DataPengaduanController::class, 'update']);
+
 
 //REST API MASYARAKAT
 Route::get('/masyarakat',[DashboardMasyarakatController::class,'index']);
@@ -29,13 +46,6 @@ Route::get('/masyarakat/{id}',[DashboardMasyarakatController::class,'show']);
 Route::post('/masyarakat-create',[DashboardMasyarakatController::class,'store']);
 Route::put('/masyarakat/{id}',[DashboardMasyarakatController::class,'update']);
 Route::delete('/masyarakat/{id}',[DashboardMasyarakatController::class,'destroy']);
-
-//REST API PETUGAS
-Route::get('/petugas',[DashboardPetugasController::class,'index']);
-Route::get('/petugas{id}',[DashboardPetugasController::class,'show']);
-Route::get('/api-petugas/{id}',[DashboardPetugasController::class,'apiPetugasDetail']);
-Route::post ('/petugas',[DashboardPetugasController::class,'store']);
-Route::put('/petugas/{id}',[DashboardPetugasController::class,'update']);
 
 //REST API ADMIN
 Route::get('/admin',[DashboardAdminController::class,'index']);
@@ -47,17 +57,3 @@ Route::delete('/admin/{id}',[DashboardAdminController::class,'destroy']);
 
 //REST API KEGIATAN
 Route::get('/kegiatan',[DashboardKegiatanController::class,'index']);
-
-// API Data User
-Route::get('/dataUser', [DataUserController::class, 'index']);
-Route::get('/dataUserId/{id}', [DataUserController::class, 'show']);
-Route::post('/user-sigin', [DataUserController::class, 'create']);
-Route::put('/user-update', [DataUserController::class, 'update']);
-
-
-// API Data Pengaduan
-Route::get('/Data-Pengaduan', [DataPengaduanController::class, 'index']);
-Route::get('/Data-Pengaduan/{id}', [DataPengaduanController::class, 'show']);
-Route::delete('/Data-Pengaduan/{id}', [DataPengaduanController::class, 'destroy']);
-Route::put('/Data-Pengaduan/{id}', [DataPengaduanController::class, 'update']);
-Route::post('/Data-Pengaduan', [DataPengaduanController::class, 'create']);
