@@ -16,6 +16,7 @@ class TanggapanController extends Controller
         ->join('masyarakat', 'masyarakat.id', '=', 'pengaduan_masyarakat.masyarakat_id')
         ->join('users', 'users.id', '=', 'masyarakat.user_id')
         ->select('users.nama', 'masyarakat.user_id', 'pengaduan_masyarakat.*')
+        ->orderBy('pengaduan_masyarakat.id', 'desc')
         ->get();
         return view('Admin.data_pengaduan', compact('dataPengaduan'));
     }
@@ -90,8 +91,9 @@ class TanggapanController extends Controller
     {
         //sebelum hapus data, hapus terlebih dahulu fisik file fotonya jika ada
         $row = Pengaduan_masyarakat::find($id);
-        
-        if(!empty($row->foto_pengaduan)) unlink('assets/img/pengaduan/'.$row->foto_pengaduan);
+        if (!empty($row->foto_pengaduan)) {
+            unlink(public_path('assets/img/pengaduan/' . $row->foto_pengaduan));
+         }
         //hapus datanya dari tabel
         DB::table('tanggapan')->where('pengaduan_id', $id)->delete();
         Pengaduan_masyarakat::where('id',$id)->delete();

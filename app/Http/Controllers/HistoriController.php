@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Auth;
         ->join('users', 'users.id', '=', 'masyarakat.user_id')
         ->select('users.nama', 'users.id','masyarakat.user_id', 'pengaduan_masyarakat.*')
         ->where('users.id', $idlogin)
+        ->orderBy('pengaduan_masyarakat.id', 'desc')
         ->get();
         return view('Masyarakat.histori_pengaduan', compact('historiPengaduan'));
     }
@@ -110,6 +111,35 @@ use Illuminate\Support\Facades\Auth;
     
       return view('Masyarakat.detail_pengaduan',compact('historiPengaduan','dataPengaduan','dataTanggapan'));
   }
+
+    //   Percobaan API 
+    public function apiDataPengaduan(){
+        $dataPengaduan = DB::table('pengaduan_masyarakat')
+        ->join('masyarakat', 'masyarakat.id', '=', 'pengaduan_masyarakat.masyarakat_id')
+        ->join('users', 'users.id', '=', 'masyarakat.user_id')
+        ->select('users.nama', 'pengaduan_masyarakat.*')
+        ->get();
+        $dataPengaduanFiltered = $dataPengaduan->map(function ($item) {
+            return collect($item)->except(['foto_pengaduan','id','masyarakat_id'])->toArray();
+        });
+        if($dataPengaduanFiltered){
+            return response()->json(
+                [
+                    'success'=>true,
+                    'message'=>'Data User Detail',
+                    'data'=> $dataPengaduanFiltered 
+                ],200);
+        }
+        else{
+            return response()->json(
+                [
+                    'success'=>false,
+                    'message'=>'Data User Tidak Ditemukan',
+                ],404);
+        }   
+
+    }
+
 }
 ?>
 
