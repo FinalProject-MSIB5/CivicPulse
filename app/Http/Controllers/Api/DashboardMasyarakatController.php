@@ -5,12 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Masyarakat; //panggil model
-use App\Http\Resources\MasyarakatResource; //panggil resource
-use Illuminate\Support\Facades\DB; // jika pakai query builder
-use Illuminate\Database\Eloquent\Model; //jika pakai eloquent
+use App\Models\Masyarakat;
+use App\Http\Resources\MasyarakatResource;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Hash; // Import Hash facade
+use Illuminate\Support\Facades\Hash;
 
 class DashboardMasyarakatController extends Controller
 {
@@ -60,7 +59,7 @@ class DashboardMasyarakatController extends Controller
             'nama' => $request->nama,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-         ]);
+        ]);
         
         // Insert into Masyarakat table
         $masyarakat = DB::table('masyarakat')->insert([
@@ -106,44 +105,40 @@ class DashboardMasyarakatController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
-        {
-            // Validation
-            $validator = Validator::make($request->all(), [
-                'nama' => 'required|string',
-                'nik' => 'required|string',
-                'no_telepon' => 'required|string',
-                'alamat' => 'required|string',
-                'gender' => 'required|string',
-                // Add other validation rules as needed
-            ]);
-        
-            // Check if validation fails
-            if ($validator->fails()) {
-                return response()->json(['error' => $validator->errors()], 400);
-            }
-        
-            // Update 'users' table
-            DB::table('users')->where('id', $id)->update([
-                'nama' => $request->input('nama'),
-            ]);
-        
-            // Update 'masyarakat' table
-            $masyarakat = DB::table('masyarakat')->where('user_id', $id)->update([
-                'nik' => $request->input('nik'),
-                'no_telepon' => $request->input('no_telepon'),
-                'alamat' => $request->input('alamat'),
-                'gender' => $request->input('gender'),
-            ]);
-        
-            // Return a JSON response with success message and updated data
-            return response()->json([
-                'success' => true,
-                'message' => 'Data Masyarakat Berhasil diubah',
-                'data' => $masyarakat,
-            ]);
-        }
-     
+      // Validation
+      $validator = Validator::make($request->all(), [
+          'nama' => 'required|string',
+          'nik' => 'required|string',
+          'no_telepon' => 'required|string',
+          'alamat' => 'required|string',
+          'gender' => 'required|string',
+          // Add other validation rules as needed
+      ]);
+  
+      // Check if validation fails
+      if ($validator->fails()) {
+          return response()->json(['error' => $validator->errors()], 400);
+      }
+  
+      // Update 'users' table
+      DB::table('users')->where('id', $id)->update([
+          'nama' => $request->input('nama'),
+      ]);
+  
+      // Update 'masyarakat' table
+      $masyarakat = DB::table('masyarakat')->where('user_id', $id)->update([
+          'nik' => $request->input('nik'),
+          'no_telepon' => $request->input('no_telepon'),
+          'alamat' => $request->input('alamat'),
+          'gender' => $request->input('gender'),
+      ]);
+  
+      // Return a JSON response with success message and updated data
+      return response()->json([
+          'success' => true,
+          'message' => 'Data Masyarakat Berhasil diubah',
+          'data' => $masyarakat,
+      ]);
     }
 
     /**
