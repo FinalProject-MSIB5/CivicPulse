@@ -22,15 +22,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
   return $request->user();
 });
 
+
 // Authentication Token API
 Route::post("/register", [AuthController::class, "register"]);
 Route::post("/login", [AuthController::class, "login"]);
+
 
 // API Data User
 Route::get('/dataUser', [DataUserController::class, 'index']);
 Route::get('/dataUserId/{id}', [DataUserController::class, 'show']);
 Route::post('/createDataUser', [DataUserController::class, 'create']);
 Route::post('/updateDataUser/{id}', [DataUserController::class, 'update']);
+
 
 // API Data Pengaduan
 Route::get('/Data-Pengaduan', [DataPengaduanController::class, 'index']);
@@ -46,14 +49,3 @@ Route::get('/masyarakat/{id}',[DashboardMasyarakatController::class,'show']);
 Route::post('/masyarakat-create',[DashboardMasyarakatController::class,'store']);
 Route::put('/masyarakat/{id}',[DashboardMasyarakatController::class,'update']);
 Route::delete('/masyarakat/{id}',[DashboardMasyarakatController::class,'destroy']);
-
-//REST API ADMIN
-Route::get('/admin',[DashboardAdminController::class,'index']);
-Route::get('/admin{id}',[DashboardAdminController::class,'show']);
-Route::get('/api-admin/{id}',[DashboardAdminController::class,'apiAdminDetail']);
-Route::post('/admin',[DashboardAdminController::class,'store']);
-Route::put('/admin/{id}',[DashboardAdminController::class,'update']);
-Route::delete('/admin/{id}',[DashboardAdminController::class,'destroy']);
-
-//REST API KEGIATAN
-Route::get('/kegiatan',[DashboardKegiatanController::class,'index']);
