@@ -22,15 +22,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
   return $request->user();
 });
 
+
 // Authentication Token API
 Route::post("/register", [AuthController::class, "register"]);
 Route::post("/login", [AuthController::class, "login"]);
+
 
 // API Data User
 Route::get('/dataUser', [DataUserController::class, 'index']);
 Route::get('/dataUserId/{id}', [DataUserController::class, 'show']);
 Route::post('/createDataUser', [DataUserController::class, 'create']);
 Route::post('/updateDataUser/{id}', [DataUserController::class, 'update']);
+
 
 // API Data Pengaduan
 Route::get('/Data-Pengaduan', [DataPengaduanController::class, 'index']);
