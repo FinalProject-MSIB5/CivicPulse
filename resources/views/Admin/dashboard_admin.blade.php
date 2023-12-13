@@ -4,7 +4,7 @@
      <div class="page-wrapper">
         <div class="page-content">
             <div class="row ">
-                <div class="col-6">
+                <div class="col">
                     <div class="card radius-10  border-warning border-start border-0 border-4">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
@@ -12,13 +12,13 @@
                                     <p style="font-size:20px; " class="mb-1">Jumlah Masyarakat Yang Melakukan Pengaduan</p>
                                     <h4 class="text-warning my-1">{{ $ar_user }}</h4>
                                 </div>
-                                <div class="text-warning ms-auto font-35"><i class="bx bx-user-pin" style="font-size: 55px;"></i>
+                                <div class="text-warning ms-auto font-35"><i class="bx bx-user-pin" style="font-size: 2em;"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col">
                     <div class="card radius-10 border-danger border-start border-0 border-4">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
@@ -26,7 +26,7 @@
                                     <p  style="font-size:20px;" class="mb-1">Total Pengaduan</p>
                                     <h4 class="my-1 text-danger">{{ $ar_pengaduan  }}</h4>
                                 </div>
-                                <div class="text-danger ms-auto font-35"><i class="bx bx-comment-detail" style="font-size: 55px;"></i>
+                                <div class="text-danger ms-auto font-35"><i class="bx bx-comment-detail" style="font-size: 2em;"></i>
                                 </div>
                             </div>
                         </div>
