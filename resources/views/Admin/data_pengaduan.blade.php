@@ -30,13 +30,13 @@
             <h5 class="mt-2 text-uppercase" >Data Pengaduan</h5>
         </div>
         <div class="col col-lg-1">
-          <a href="{{ route('pengaduan-pdf') }}" class="btn btn-danger btn-sm" target="_blank" title="Export to PDF">
-              <i class="bi bi-file-earmark-pdf"></i> PDF
+          <a href="{{ route('pengaduan-pdf') }}" class="btn btn-danger btn-sm" target="_blank" title="Export to PDF" style="white-space: nowrap;">
+              <i class="bi bi-file-earmark-pdf"></i>PDF
           </a>
       </div>
       <div class="col col-lg-1">
-          <a href="{{ url('/excel-export') }}" class="btn btn-success btn-sm" target="_blank" title="Export to Excel">
-            <i class="bi bi-file-earmark-spreadsheet"></i> Excel</a>
+          <a href="{{ url('/excel-export') }}" class="btn btn-success btn-sm" target="_blank" title="Export to Excel" style="white-space: nowrap;">
+            <i class="bi bi-file-earmark-spreadsheet"></i>Excel</a>
     </div>
   </div>
   <hr/>
@@ -90,6 +90,11 @@
                                   </a>
                                   @if($histori->status == "Selesai")
                                   <button type="submit" class="btn btn-danger btn-sm show-alert-delete-box" title="Hapus pengajuan">
+                                      <i class="bi bi-trash"></i>
+                                  </button>
+                                  @endif
+                                  @if($histori->status == "Belum diproses" || $histori->status == "Proses")
+                                  <button type="submit" class="btn btn-danger btn-sm show-alert-delete-box" title="Hapus pengajuan" disabled>
                                       <i class="bi bi-trash"></i>
                                   </button>
                                   @endif
